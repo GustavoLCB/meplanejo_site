@@ -96,14 +96,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# E-mail do formulario de contato (a senha vem do arquivo .env, nunca do codigo)
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# Contato pelo WhatsApp (numero no formato internacional, so digitos: 55 + DDD + numero)
+WHATSAPP_NUMERO = os.environ.get('WHATSAPP_NUMERO', '5521981814140')
+WHATSAPP_EXIBICAO = os.environ.get('WHATSAPP_EXIBICAO', '(21) 98181-4140')
 
 if not DEBUG:
     SESSION_COOKIE_SECURE = True

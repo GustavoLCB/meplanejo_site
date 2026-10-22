@@ -460,3 +460,11 @@ class MetasETesouroTests(TestCase):
             self.assertContains(r, 'Valor líquido final')
             self.assertContains(r, 'custódia da B3')
         self.assertContains(r, 'Cupons de juros recebidos')
+
+
+class ContatoTests(TestCase):
+    def test_contato_abre_whatsapp(self):
+        r = self.client.get(reverse('contato'))
+        self.assertContains(r, 'https://wa.me/5521981814140?text=')
+        self.assertContains(r, '(21) 98181-4140')
+        self.assertNotContains(r, '<form')

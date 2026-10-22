@@ -1,12 +1,13 @@
+from urllib.parse import quote
+
 from django.conf import settings
-from django.core.mail import send_mail
 from django.db.models import F
 from django.shortcuts import render
 from django.utils import timezone
 
 from .calculos import (NOMES_MESES, TIPOS_FUNDO, brl, calcular_meta, comparar_etf_fundo, simular_cdb, simular_fii,
                        simular_fundo, simular_indexado, simular_previdencia, tratar_valor)
-from .forms import (CDBForm, ContatoForm, CRIForm, DebentureForm, ETFForm, FIIForm, FundoForm, LCIForm,
+from .forms import (CDBForm, CRIForm, DebentureForm, ETFForm, FIIForm, FundoForm, LCIForm,
                     MetaForm, PrevidenciaForm, SimuladorForm, TesouroForm)
 from .models import CardInvestimento, Visita
 
@@ -26,22 +27,9 @@ def home(request):
 
 
 def contato(request):
-    sucesso = erro = False
-    if request.method == 'POST':
-        form = ContatoForm(request.POST)
-        if form.is_valid():
-            dados = form.cleaned_data
-            corpo = f"De: {dados['nome']} <{dados['email']}>\n\n{dados['mensagem']}"
-            try:
-                send_mail(f"Site: {dados['assunto']}", corpo, settings.EMAIL_HOST_USER,
-                          ['gus.lopescb@gmail.com'])
-                sucesso = True
-                form = ContatoForm()
-            except Exception:
-                erro = True
-    else:
-        form = ContatoForm()
-    return render(request, 'contato.html', {'form': form, 'sucesso': sucesso, 'erro': erro,
+    mensagem = 'Olá! Vim pelo site Me Planejo e gostaria de conversar.'
+    link = f"https://wa.me/{settings.WHATSAPP_NUMERO}?text={quote(mensagem)}"
+    return render(request, 'contato.html', {'whatsapp_link': link, 'whatsapp_exibicao': settings.WHATSAPP_EXIBICAO,
                                             'total_visitas': obter_visitas(request)})
 
 

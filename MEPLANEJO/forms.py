@@ -4,13 +4,6 @@ from django.utils.safestring import mark_safe
 from .calculos import TIPOS_FUNDO, tratar_valor
 
 
-class ContatoForm(forms.Form):
-    nome = forms.CharField(label='Nome', max_length=100)
-    email = forms.EmailField(label='Seu E-mail')
-    assunto = forms.CharField(label='Assunto', max_length=100)
-    mensagem = forms.CharField(label='Mensagem', widget=forms.Textarea)
-
-
 class CamposBase(forms.Form):
     """Campos comuns das paginas de produto (valor inicial, aporte e prazo)."""
     valor_inicial = forms.CharField(
