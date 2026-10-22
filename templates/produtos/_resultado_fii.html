@@ -1,0 +1,36 @@
+{% if resultado %}
+<div class="res-box">
+    <p class="res-rotulo">Renda mensal estimada ao final</p>
+    <h2 class="res-final" style="text-transform: none;">R$ {{ resultado.renda_mensal_final }}</h2>
+    <p class="calc-nota" style="margin-top: -15px; margin-bottom: 20px;">dividendos por mês, isentos de IR, com {{ resultado.dividend_yield }}% ao mês sobre o valor das cotas</p>
+
+    <div class="res-linhas">
+        <div class="res-linha"><span>Valor inicial</span><span>R$ {{ resultado.inicial }}</span></div>
+        <div class="res-linha"><span>Aportes mensais somados</span><span>R$ {{ resultado.aportes_mensais }}</span></div>
+        <div class="res-linha total"><span>Total aportado (seu dinheiro)</span><span>R$ {{ resultado.investido }}</span></div>
+
+        <div class="res-linha"><span>Dividendos recebidos no período (isentos)</span><span>R$ {{ resultado.dividendos_total }}</span></div>
+        {% if resultado.reinvestir %}
+        <div class="res-linha sub"><span>Reinvestidos em novas cotas</span><span>R$ {{ resultado.dividendos_reinvestidos }}</span></div>
+        {% else %}
+        <div class="res-linha sub"><span>Recebidos em conta (não reinvestidos)</span><span>R$ {{ resultado.dividendos_em_caixa }}</span></div>
+        {% endif %}
+        <div class="res-linha total"><span>Valor das cotas ao final</span><span>R$ {{ resultado.valor_cotas }}</span></div>
+
+        <div class="res-linha sub"><span>Custo médio total das cotas</span><span>R$ {{ resultado.custo }}</span></div>
+        <div class="res-linha"><span>{% if resultado.prejuizo %}Prejuízo{% else %}Ganho{% endif %} de capital se vender tudo</span><span>R$ {{ resultado.ganho_capital }}</span></div>
+        <div class="res-linha menos"><span>(-) IR de 20% sobre o ganho na venda</span><span>R$ {{ resultado.ir_venda }}</span></div>
+        <div class="res-linha total"><span>Patrimônio líquido final (vendendo tudo)</span><span>R$ {{ resultado.patrimonio_liquido }}</span></div>
+
+        <div class="res-linha"><span>Resultado líquido (patrimônio - aportado)</span><span>R$ {{ resultado.resultado_liquido }}</span></div>
+        <div class="res-linha"><span>Rentabilidade líquida no período</span><span>{{ resultado.rentabilidade_liquida }}%</span></div>
+    </div>
+    {% if resultado.prejuizo %}
+    <p class="calc-nota" style="margin-top: 20px;">Venda com prejuízo: não há IR, e o prejuízo pode ser usado para abater ganhos futuros em FIIs.</p>
+    {% endif %}
+</div>
+{% else %}
+<div class="res-box">
+    <p class="calc-vazio">Preencha os dados ao lado para ver a renda mensal e o patrimônio que sua carteira de FIIs poderia gerar.</p>
+</div>
+{% endif %}

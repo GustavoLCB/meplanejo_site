@@ -1,0 +1,17 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}Simulador de Investimentos{% endblock %}
+{% block hero_titulo %}Simulador de Investimentos{% endblock %}
+{% block hero_sub %}Pós-fixado, pré-fixado ou IPCA+: veja o valor líquido, com Imposto de Renda{% endblock %}
+
+{% block textos %}{% endblock %}
+
+{% block simule_titulo %}Simule o seu investimento{% endblock %}
+{% block simule_intro %}Escolha como o investimento rende e preencha só os campos que aparecem habilitados. Funciona para CDB, LCI, LCA, CRI, CRA e debêntures
+            (marque "isento" quando o título for isento de IR). Para o Tesouro Direto, que tem taxas e cupons próprios, use a <a href="{% url 'produto_tesouro' %}" style="color: var(--accent-neon);">página do Tesouro Direto</a>.{% endblock %}
+{% block nota_taxa %}<strong>Dica:</strong> no pós-fixado, o CDI pode mudar ao longo do tempo. Informe o CDI de hoje, o que você acha que ele será no futuro e em quantos meses isso acontece.
+                        No IPCA+, a inflação futura é uma estimativa sua. Use cenários conservadores.{% endblock %}
+{% block nota_calculo %}<strong>Como calculamos:</strong> aportes feitos no fim de cada mês; o IR é calculado separadamente para cada aporte pela tabela regressiva
+                        (22,5%, 20%, 17,5% e 15%; 1 mês = 30 dias), a menos que você marque isento. {% endblock %}
+{% block resumo %}
+            <p>Simulações são estimativas educacionais: taxas, inflação e CDI futuros não são conhecidos. Teste cenários otimistas e pessimistas para planejar com segurança.</p>
+{% endblock %}

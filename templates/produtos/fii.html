@@ -1,0 +1,144 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}Fundos Imobiliários{% endblock %}
+{% block hero_titulo %}Fundos Imobiliários{% endblock %}
+{% block hero_sub %}FIIs: seja dono de um pedaço de grandes empreendimentos{% endblock %}
+
+{% block textos %}
+        <section class="painel">
+            <h2>O que é um Fundo Imobiliário?</h2>
+            <p>Chegamos ao "queridinho" de muitos investidores brasileiros: os <strong>FIIs</strong> (Fundos de Investimento Imobiliário). Se você sempre
+            quis ser dono de um shopping, de um prédio de escritórios na Faria Lima ou de um galpão logístico usado por grandes empresas, mas não tem
+            centenas de milhões de reais, os FIIs resolvem isso: você e milhares de pessoas se juntam, o fundo compra os imóveis e você compra uma
+            <strong>cota</strong>, um pedacinho do todo.</p>
+            <p>Os FIIs são negociados na <strong>Bolsa de Valores (B3)</strong>, como uma ação: você compra e vende cotas pelo home broker, a partir
+            de poucas dezenas de reais.</p>
+
+            <h3>A analogia do "dono do shopping"</h3>
+            <p>Todo mês, as lojas do shopping pagam aluguel ao fundo. O fundo desconta as despesas e <strong>distribui o lucro para os cotistas</strong>, na
+            proporção do número de cotas de cada um. É como receber um "aluguel" mensal direto na conta, sem cobrar inquilino, pintar parede ou consertar telhado:
+            uma equipe profissional cuida de tudo.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Os segmentos: onde o fundo investe</h2>
+            <p>Nem todo FII é dono de prédio. Entender o segmento é fundamental, porque ele define de onde vem o dinheiro e quais são os riscos:</p>
+            <div class="cards-tipos">
+                <div class="card-tipo">
+                    <h3>Tijolo</h3>
+                    <p>Donos de imóveis físicos, que geram <strong>aluguel</strong>. Dividem-se em lajes corporativas (escritórios), galpões logísticos e industriais,
+                    shoppings, agências bancárias, hospitais, educacionais, hotéis e residenciais. O risco típico é a <strong>vacância</strong> (imóveis vazios).</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Papel</h3>
+                    <p>Não têm imóveis: investem em títulos de crédito imobiliário, como <strong>CRIs</strong> e LCIs. A renda vem dos <strong>juros</strong> (CDI + taxa ou IPCA + taxa).
+                    O risco típico é a <strong>inadimplência</strong> de quem emitiu a dívida.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Fundos de Fundos (FoF)</h3>
+                    <p>Compram cotas de <strong>outros FIIs</strong>. O gestor escolhe e diversifica entre vários fundos e segmentos por você, em troca de uma taxa adicional.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Híbridos</h3>
+                    <p>Misturam imóveis e papéis (e, às vezes, cotas de outros fundos) na mesma carteira, para equilibrar renda e risco.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Desenvolvimento</h3>
+                    <p>Compram terrenos e <strong>constroem</strong> ou reformam imóveis para vender depois. Podem render mais, mas são mais arriscados, pois dependem de obras e de vendas.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Fiagro (primo do agro)</h3>
+                    <p>Os Fiagros funcionam de forma parecida, mas investem no <strong>agronegócio</strong> (terras, recebíveis e cadeias do agro). Têm regras próprias, então confira os detalhes de cada um.</p>
+                </div>
+            </div>
+            <p class="destaque">Dica de diversificação: carteiras equilibradas costumam misturar fundos de tijolo (que tendem a proteger da inflação pelos reajustes de aluguel)
+            e de papel (que se beneficiam de juros altos), em vez de concentrar tudo em um único segmento.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Como o FII rende? Dividendos e valorização</h2>
+            <p>O seu retorno vem de duas fontes, que se somam:</p>
+            <div class="cards-tipos dois">
+                <div class="card-tipo">
+                    <h3>1. Dividendos (os rendimentos)</h3>
+                    <p>É o "aluguel" mensal. Por lei, os FIIs devem distribuir ao menos <strong>95% do resultado de caixa</strong> (apurado em base semestral), por isso a
+                    maioria paga todos os meses. Você recebe na conta da corretora, geralmente nos primeiros dias úteis do mês seguinte.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>2. Variação do preço da cota</h3>
+                    <p>Como as ações, a cota oscila na bolsa conforme a oferta e a demanda. Se você vende por mais do que pagou, tem <strong>ganho de capital</strong>; por menos,
+                    tem <strong>prejuízo</strong>. É a parte que não é garantida.</p>
+                </div>
+            </div>
+
+            <h3>Como funciona o dividendo na prática</h3>
+            <p><strong>Dividend Yield (DY)</strong> é quanto o fundo pagou em relação ao preço da cota. <strong>Exemplo:</strong> uma cota custa R$ 100 e o fundo paga R$ 0,85 por mês.
+            O DY é de <strong>0,85% ao mês</strong> (cerca de 10% ao ano). Se você tem 100 cotas (R$ 10.000 investidos), recebe <strong>R$ 85 por mês</strong>.</p>
+            <p><strong>"Data com" e "data ex":</strong> para receber o dividendo de um mês, você precisa ser dono da cota até a <em>data-base</em> (a "data com"). Quem compra depois dessa data ("data ex")
+            só recebe o dividendo do mês seguinte. Os valores mudam de mês para mês, porque dependem dos aluguéis e dos juros recebidos: <strong>dividendo não é renda fixa garantida</strong>.</p>
+            <p><strong>P/VP:</strong> compara o preço da cota na bolsa com o valor patrimonial dela. P/VP abaixo de 1 significa que a cota está sendo negociada com desconto em relação ao patrimônio; acima de 1,
+            com ágio. É um dos indicadores mais usados, mas não deve ser analisado sozinho.</p>
+
+            <h3>Exemplo: reinvestir ou gastar?</h3>
+            <p>Imagine R$ 10.000 em um FII com DY de 0,85% ao mês. No primeiro mês, vêm cerca de R$ 85. Se você <strong>gasta</strong>, tem uma renda extra mensal.
+            Se <strong>reinveste</strong> comprando mais cotas, no mês seguinte o dividendo será calculado sobre uma base maior: é o efeito dos juros compostos, e é assim que
+            muita gente constrói uma "renda passiva" ao longo dos anos. O simulador mais abaixo permite comparar os dois caminhos.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Vendendo as cotas: liquidez e ganho de capital</h2>
+            <p>Diferente de um apartamento, que pode levar meses para vender, as cotas de FIIs são vendidas na bolsa e o dinheiro cai na conta em poucos dias úteis. Porém, o
+            <strong>preço de venda é o do mercado no dia</strong>: se a cota estiver barata, você vende com prejuízo. Alguns FIIs têm pouco volume de negociação (baixa liquidez), o que dificulta vender no preço desejado.</p>
+            <h3>Exemplos de venda</h3>
+            <p><strong>Com lucro:</strong> você comprou 100 cotas a R$ 100 (R$ 10.000) e vendeu a R$ 120 (R$ 12.000). Ganho de capital: R$ 2.000. Imposto de 20%: <strong>R$ 400</strong>.<br>
+            <strong>Com prejuízo:</strong> você vendeu as mesmas cotas a R$ 90 (R$ 9.000). Prejuízo de R$ 1.000: sem imposto, e esse valor pode <strong>abater lucros futuros</strong> em vendas de FIIs.</p>
+            <p>Lembre-se: durante todo o tempo em que você foi dono das cotas, os dividendos já vieram isentos. O imposto só aparece na hora de vender com lucro.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Segurança: o FGC</h2>
+            <p>Assim como CRI/CRA e debêntures, os FIIs <strong>NÃO possuem garantia do FGC</strong>. O dinheiro do fundo é separado do patrimônio do gestor e fiscalizado pela CVM,
+            mas o valor das cotas e dos dividendos depende do desempenho dos imóveis e dos créditos da carteira.</p>
+            <h3>Principais riscos</h3>
+            <p><strong>Vacância e inadimplência</strong> (inquilinos saindo ou não pagando), <strong>risco de crédito</strong> (nos fundos de papel), <strong>oscilação do preço</strong> da cota, <strong>juros altos</strong>
+            (que costumam pressionar o preço dos FIIs, pois a renda fixa fica mais atraente), <strong>baixa liquidez</strong> e <strong>concentração</strong> em poucos imóveis ou inquilinos.</p>
+            <p class="destaque">Antes de investir, veja nos relatórios gerenciais: o segmento, a vacância, a qualidade dos inquilinos ou devedores, o histórico de dividendos, o P/VP, o volume diário de negociação e as taxas do fundo.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A mordida do Leão: Imposto de Renda</h2>
+            <div class="tabela-scroll-x">
+            <table class="tabela-ir">
+                <thead>
+                    <tr><th>O que acontece</th><th>Imposto para pessoa física</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Dividendos mensais</td><td class="aliq">Isentos (0%)</td></tr>
+                    <tr><td>Venda das cotas com lucro</td><td class="aliq">20% sobre o lucro</td></tr>
+                    <tr><td>Venda com prejuízo</td><td>Sem imposto; o prejuízo pode ser compensado em ganhos futuros de FIIs</td></tr>
+                    <tr><td>Come-cotas</td><td class="aliq">Não existe</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p><strong>Dividendos isentos:</strong> a isenção vale, em geral, quando o fundo tem pelo menos 50 cotistas, as cotas são negociadas apenas em bolsa e o investidor tem menos de
+            10% das cotas. A grande maioria dos FIIs listados atende a essas condições, e o informe de rendimentos de cada fundo confirma. A reforma do Imposto de Renda de 2025 (Lei 15.270) não alterou essa regra.</p>
+            <p class="destaque">Atenção: diferente das ações, nos FIIs <strong>não existe a faixa de isenção de R$ 20 mil</strong> em vendas no mês. Se vendeu com lucro, paga 20% sobre o lucro, mesmo em
+            valores pequenos, por meio do <strong>DARF</strong>, até o último dia útil do mês seguinte. Os dividendos e as posições também precisam ser informados na declaração anual.</p>
+            <p class="calc-nota">Em 2025 chegou a ser proposta a cobrança de IR sobre os dividendos de FIIs, mas ela não foi aprovada. Como leis podem mudar, confira a regra vigente antes de investir.</p>
+        </section>
+{% endblock %}
+
+{% block simule_titulo %}Simule a sua carteira de FIIs{% endblock %}
+{% block simule_intro %}Descubra quanto <strong>de renda mensal</strong> e de patrimônio uma carteira de FIIs poderia gerar. Informe o dividend yield esperado, a variação do preço das cotas
+            e se você vai reinvestir os dividendos.{% endblock %}
+{% block nota_taxa %}<strong>Dividend yield mensal:</strong> dividendos do mês ÷ preço da cota. Exemplo: 0,85% ao mês equivale a cerca de 10,7% ao ano. <strong>Valorização anual:</strong> quanto você acredita
+                        que o preço da cota varia por ano (0 se achar que fica parado; pode ser negativa). Dê preferência a cenários conservadores: <strong>rendimentos passados não garantem os futuros</strong>.{% endblock %}
+{% block nota_calculo %}<strong>Como calculamos:</strong> o dividendo do mês é o DY sobre o valor das cotas; aportes no fim de cada mês. Se você reinveste, o dividendo compra novas cotas (entram no seu custo);
+                        senão, ele fica na sua conta. Na venda de tudo, o ganho de capital (valor das cotas - custo) paga 20%. É uma estimativa educacional: não considera taxas de corretagem, a variação do DY nem mudanças nas regras.{% endblock %}
+
+{% block resultado_bloco %}{% include 'produtos/_resultado_fii.html' %}{% endblock %}
+{% block evolucao_bloco %}{% include 'produtos/_evolucao_fii.html' %}{% endblock %}
+
+{% block resumo %}
+            <p>Os FIIs permitem <strong>ser dono de imóveis e créditos imobiliários com pouco dinheiro</strong> e receber uma renda mensal <strong>isenta de Imposto de Renda</strong>. Em troca, o preço das cotas oscila,
+            o dividendo não é garantido e não há FGC. Diversificar entre segmentos e fundos, olhar a qualidade dos ativos e pensar no longo prazo são os melhores aliados.</p>
+{% endblock %}

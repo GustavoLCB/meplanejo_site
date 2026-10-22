@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Me Planejo - Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        #investimentos { scroll-margin-top: 100px; }
+        /* Ajustes específicos de cores para garantir a visibilidade neon na navbar */
+        .nav-center a, .nav-left .logo a, .nav-right, .menu-btn { 
+            color: #39ff14 !important; 
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.6); 
+            font-weight: 700; 
+            transition: 0.3s; 
+        }
+        .nav-center a:hover { color: #fff !important; text-shadow: none; }
+
+        /* Estilo dos botões de vídeo nos cards */
+        .btn-video { 
+            display: inline-block; 
+            padding: 14px 28px; 
+            border: 1px solid #39ff14; 
+            color: #39ff14; 
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            border-radius: 2px; 
+            white-space: nowrap; 
+            transition: 0.3s; 
+            width: 100%; 
+            text-align: center;
+        }
+        .btn-video:hover { background: #39ff14; color: #000; }
+
+        /* === SISTEMA DE SIDEBAR SEM JAVASCRIPT === */
+        #check-sidebar { display: none; }
+
+        .sidebar-lateral {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            /* Alterado para o azul do seu projeto (rgba de #001233) */
+            background: rgba(0, 18, 51, 0.95); 
+            backdrop-filter: blur(15px); 
+            overflow-x: hidden;
+            transition: 0.5s ease-in-out;
+            border-right: 0px solid #39ff14;
+        }
+
+        #check-sidebar:checked ~ .sidebar-lateral {
+            width: 380px;
+            border-right: 1px solid #39ff14;
+        }
+
+        .sidebar-content {
+            padding: 80px 40px;
+            color: #fff;
+            opacity: 0;
+            transition: 0.3s;
+            min-width: 380px;
+        }
+
+        #check-sidebar:checked ~ .sidebar-lateral .sidebar-content {
+            opacity: 1;
+        }
+
+        .close-sidebar-btn {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 2rem;
+            color: #39ff14;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-sidebar-btn:hover { color: #fff; transform: scale(1.1); }
+
+        .sidebar-content h2 { 
+            color: #39ff14; 
+            font-size: 1.5rem; 
+            letter-spacing: 5px; 
+            margin-bottom: 30px; 
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+        }
+
+        .sidebar-content h4 { 
+            color: #39ff14; 
+            margin-top: 40px; 
+            font-size: 0.85rem; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .sidebar-content p { 
+            font-size: 0.9rem; 
+            line-height: 1.8; 
+            color: rgba(255, 255, 255, 0.8); 
+            font-weight: 300; 
+            margin-top: 10px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="checkbox" id="check-sidebar">
+
+    <div class="sidebar-lateral">
+        <label for="check-sidebar" class="close-sidebar-btn">&times;</label>
+        <div class="sidebar-content">
+            <h2>SOBRE NÓS</h2>
+            
+            <h4>Nossa História</h4>
+            <p>O Me Planejo começou com o propósito de democratizar o conhecimento financeiro. Desde o início, focamos 
+            em criar exemplos didáticos e com analogias do cotidiano, para ajudar as pessoas a compreenderem melhor os 
+            produtos financeiros e como consequência investirem de forma consciênte e com inteligência.</p>
+
+            <h4>Nossa Missão</h4>
+            <p>Levar conhecimento financeiro de qualidade para todos, transformando a relação das pessoas com o dinheiro 
+            através de planejamento estratégico.</p>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <label class="menu-btn" for="check-sidebar" style="cursor: pointer;">
+                <i class="fas fa-bars"></i>
+            </label>
+            <div class="logo"><a href="/">ME PLANEJO</a></div>
+        </div>
+        <nav class="nav-center">
+            <a href="/">Home</a>
+            <a href="#investimentos">Investimentos</a>
+            <a href="{% url 'simulador' %}">Simulador</a>
+            <a href="{% url 'simulador_metas' %}">Metas</a>
+            <a href="{% url 'contato' %}">Contato</a>
+        </nav>
+        <div class="nav-right">VISITAS: {{ total_visitas }}</div>
+    </header>
+
+    <section id="hero-banner" class="hero-section">
+        <h1 class="hero-title">Planeje seu futuro com inteligência.</h1>
+        <p class="hero-subtitle">Aprenda e otimize seus investimentos em um só lugar.</p>
+    </section>
+
+    <main>
+        <div id="investimentos" class="investiments-list">
+            {% for card in cards %}
+            <div class="invest-item">
+                <div class="invest-icon-box">
+                    <i class="fas {{ card.icone }}"></i>
+                </div>
+                <div class="invest-info">
+                    <span>{{ card.get_tipo_investimento_display }}</span>
+                    <h3 class="invest-title">{{ card.titulo }}</h3>
+                    <p>{{ card.descricao }}</p>
+                </div>
+                <div class="invest-action">
+                    {% if card.pagina_url %}
+                    <a href="{{ card.pagina_url }}" class="btn-video">Ver Conteúdo</a>
+                    {% else %}
+                    <span class="btn-video btn-em-breve">Em breve</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; {% now "Y" %} ME PLANEJO. Dignidade e Educação Financeira.</p>
+    </footer>
+
+</body>
+</html>

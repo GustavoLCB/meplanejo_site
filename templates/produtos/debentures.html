@@ -1,0 +1,89 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}Debêntures{% endblock %}
+{% block hero_titulo %}Debêntures{% endblock %}
+{% block hero_sub %}Emprestando dinheiro para grandes empresas{% endblock %}
+
+{% block textos %}
+        <section class="painel">
+            <h2>O que é uma Debênture?</h2>
+            <p>Se o CDB era emprestar para o banco e o CRI/CRA para um prédio ou uma fazenda, aqui você empresta dinheiro <strong>diretamente para uma grande
+            empresa</strong>. As debêntures são títulos de dívida emitidos por empresas de capital aberto (S.A.), como companhias de energia, de
+            rodovias, de saneamento ou grandes redes de varejo.</p>
+            <p>O objetivo é quase sempre financiar projetos grandes: expansão, construção de usinas e estradas, pagamento de dívidas antigas ou novos
+            investimentos. Diferente do banco, que é um "intermediário", aqui você lida direto com a empresa.</p>
+
+            <h3>Comum ou incentivada?</h3>
+            <p>Existe uma divisão muito importante, que muda o imposto:</p>
+            <div class="cards-tipos dois">
+                <div class="card-tipo">
+                    <h3>Debênture comum</h3>
+                    <p>O dinheiro vai para fins gerais da empresa (caixa, expansão, marketing). Paga Imposto de Renda pela tabela regressiva, como o CDB.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Debênture incentivada</h3>
+                    <p>O dinheiro vai para projetos de infraestrutura (energia, transportes, saneamento). Para incentivar, o governo <strong>não cobra IR</strong> de pessoas físicas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Como a Debênture rende?</h2>
+            <div class="cards-tipos">
+                <div class="card-tipo">
+                    <h3>Prefixada</h3>
+                    <p>Taxa fixa combinada na compra. Exemplo: 14% ao ano.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Pós-fixada</h3>
+                    <p>Percentual do CDI ou CDI + taxa. Exemplo: CDI + 1,5% ao ano.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Híbrida</h3>
+                    <p>Muito comum nas incentivadas: inflação (IPCA) + taxa fixa. Exemplo: IPCA + 7%.</p>
+                </div>
+            </div>
+            <p>Quanto maior o risco da empresa, maior costuma ser a taxa oferecida. Os prazos são longos e a venda antes do vencimento depende do
+            mercado secundário, então considere que o dinheiro ficará aplicado. O simulador abaixo considera o reinvestimento dos juros.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Segurança: o FGC</h2>
+            <p>Assim como o CRI e o CRA, as debêntures <strong>NÃO possuem garantia do FGC</strong>. Quem responde pela dívida é a empresa emissora:
+            se ela não conseguir pagar, você pode perder parte ou todo o dinheiro investido.</p>
+            <h3>Como se proteger?</h3>
+            <p>Avalie a <strong>nota de risco (rating)</strong> da empresa e da emissão, a existência de <strong>garantias</strong>, o setor de atuação
+            e as cláusulas de proteção ao investidor (os chamados <em>covenants</em>). E o mais importante: <strong>diversifique</strong>, sem concentrar
+            muito dinheiro em uma única empresa.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A mordida do Leão: Imposto de Renda</h2>
+            <p><strong>Debêntures comuns</strong> seguem a mesma Tabela Regressiva do CDB, sobre o lucro:</p>
+            <table class="tabela-ir">
+                <thead>
+                    <tr><th>Tempo de aplicação</th><th>Alíquota sobre o lucro</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Até 180 dias</td><td class="aliq">22,5%</td></tr>
+                    <tr><td>De 181 a 360 dias</td><td class="aliq">20%</td></tr>
+                    <tr><td>De 361 a 720 dias</td><td class="aliq">17,5%</td></tr>
+                    <tr><td>Acima de 720 dias</td><td class="aliq">15%</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Debêntures incentivadas</strong> são o "pulo do gato": para quem investe em obras de infraestrutura, o governo diz "eu não cobro nada de
+            imposto". O IR para pessoas físicas é <strong>0%</strong>, qualquer que seja o tempo em que você mantiver o título.</p>
+            <p class="destaque">No simulador, marque a opção <strong>"Debênture incentivada"</strong> para calcular sem Imposto de Renda. Deixando desmarcada,
+            é aplicada a Tabela Regressiva.</p>
+            <p class="calc-nota">Em 2025 chegou a ser proposta uma cobrança de 5% sobre novas emissões de incentivadas, mas a medida perdeu a validade.
+            Como leis podem mudar, confira a regra vigente antes de investir.</p>
+        </section>
+{% endblock %}
+
+{% block simule_titulo %}Simule a sua Debênture{% endblock %}
+{% block nota_ir %}se a opção "incentivada" estiver marcada, não há desconto de IR; caso contrário, o IR é calculado separadamente para cada aporte, conforme o tempo
+                        que ele ficou aplicado (1 mês = 30 dias){% endblock %}
+
+{% block resumo %}
+            <p>As debêntures permitem <strong>emprestar diretamente para empresas</strong> e, nas incentivadas, ainda <strong>não pagar Imposto de Renda</strong>.
+            Em compensação, não têm FGC: a análise da empresa, do rating e das garantias é parte essencial da decisão.</p>
+{% endblock %}

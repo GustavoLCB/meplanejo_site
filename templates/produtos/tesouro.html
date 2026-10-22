@@ -1,0 +1,119 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}Tesouro Direto{% endblock %}
+{% block hero_titulo %}Tesouro Direto{% endblock %}
+{% block hero_sub %}Títulos públicos: você empresta dinheiro para o Governo Federal{% endblock %}
+
+{% block textos %}
+        <section class="painel">
+            <h2>O que é o Tesouro Direto?</h2>
+            <p>O Tesouro Direto é um programa do Tesouro Nacional que permite a qualquer pessoa comprar <strong>títulos públicos</strong> pela internet. Na prática, <strong>você empresta dinheiro
+            ao Governo Federal</strong> e, em troca, ele se compromete a devolver o valor com juros em uma data combinada, o <strong>vencimento</strong>.</p>
+            <p>A compra é feita por uma corretora ou banco (você escolhe uma instituição e abre a conta de investimentos). O valor mínimo é baixo: cerca de <strong>R$ 30</strong>
+            (o mínimo é 1% do preço do título, e varia). Por isso o Tesouro é, para muita gente, a porta de entrada na renda fixa.</p>
+
+            <h3>Títulos e vencimentos</h3>
+            <p>Cada tipo de título pode ter <strong>vários vencimentos</strong>. Ele é parte do nome: por exemplo, <em>Tesouro IPCA+ 2035</em> devolve o dinheiro em 2035. Quanto mais longe o vencimento,
+            mais tempo o seu dinheiro fica comprometido, e maiores são as oscilações do preço do título se você vender antes (explicamos na parte de segurança).</p>
+        </section>
+
+        <section class="painel">
+            <h2>Como o Tesouro Direto rende?</h2>
+            <p>Existem três formas principais de rendimento:</p>
+            <div class="cards-tipos">
+                <div class="card-tipo">
+                    <h3>Tesouro Selic</h3>
+                    <p>Pós-fixado: rende a <strong>taxa Selic</strong>, a taxa básica de juros. Se a Selic sobe, o rendimento sobe. É o título de menor oscilação, ideal para <strong>reserva de emergência</strong> e metas de curto prazo.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Tesouro Prefixado</h3>
+                    <p>A taxa é combinada na compra e não muda. Exemplo: 12% ao ano. Você sabe exatamente quanto vai receber <strong>se esperar até o vencimento</strong>.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Tesouro IPCA+</h3>
+                    <p>Híbrido: rende a <strong>inflação (IPCA)</strong> mais uma <strong>taxa fixa</strong>. Exemplo: IPCA + 6% ao ano. Protege o seu poder de compra e é muito usado para metas de longo prazo, como a aposentadoria.</p>
+                </div>
+            </div>
+
+            <h3>Entendendo o IPCA+ (o híbrido)</h3>
+            <p>O IPCA+ tem <strong>duas partes que se multiplicam</strong>: a inflação do período, que corrige o seu dinheiro para ele não perder valor, e a taxa fixa, que é o ganho "de verdade" acima da inflação.</p>
+            <p class="destaque"><strong>Exemplo:</strong> você compra um título que paga IPCA + 6% ao ano e a inflação é de 4,5% ao ano. O rendimento no ano não é 10,5%, e sim
+            (1,045 &times; 1,06) &minus; 1 = <strong>10,77%</strong>. Com R$ 10.000, em 5 anos: R$ 10.000 &times; 1,1077<sup>5</sup> &asymp; <strong>R$ 16.676</strong> (antes do IR).
+            Se a inflação for maior, você recebe mais; se for menor, recebe menos, mas a parte fixa de 6% acima dela está garantida.</p>
+            <p>Como a inflação futura é desconhecida, o simulador abaixo pede o <strong>IPCA estimado</strong>. Tente cenários diferentes.</p>
+
+            <h3>Juros semestrais (cupons)</h3>
+            <p>O Prefixado e o IPCA+ também existem na versão <strong>com juros semestrais</strong>. Em vez de receber tudo no vencimento, você recebe os <strong>juros de 6 em 6 meses</strong>
+            (os "cupons"), e o valor principal volta no final.</p>
+            <div class="tabela-scroll-x">
+            <table class="tabela-ir">
+                <thead>
+                    <tr><th>Título</th><th>Rende</th><th>Paga cupons?</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Tesouro Selic</td><td>Selic</td><td>Não</td></tr>
+                    <tr><td>Tesouro Prefixado</td><td>Taxa fixa</td><td>Não, tudo no vencimento</td></tr>
+                    <tr><td>Tesouro Prefixado com Juros Semestrais</td><td>Taxa fixa</td><td class="aliq">Sim, a cada 6 meses</td></tr>
+                    <tr><td>Tesouro IPCA+</td><td>IPCA + taxa fixa</td><td>Não, tudo no vencimento</td></tr>
+                    <tr><td>Tesouro IPCA+ com Juros Semestrais</td><td>IPCA + taxa fixa</td><td class="aliq">Sim, a cada 6 meses</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p><strong>Quando faz sentido o cupom?</strong> Para quem quer uma renda periódica (por exemplo, complementar a renda). Para quem quer apenas acumular, o título sem cupom costuma render mais depois do imposto, porque o cupom
+            é tributado a cada pagamento e, nos primeiros anos, a alíquota é alta (veja abaixo). Se você reinvestir o cupom, o rendimento bruto é parecido, mas o imposto fica maior. O simulador mostra a diferença.</p>
+
+            <h3>Outros títulos</h3>
+            <p>Existem também o <strong>Tesouro Renda+</strong> (para a aposentadoria: você acumula e depois recebe renda mensal) e o <strong>Tesouro Educa+</strong> (renda mensal por 5 anos para custear estudos),
+            ambos atrelados ao IPCA, além do <strong>Tesouro Reserva</strong>, lançado em 2026 para reserva de emergência, com resgate imediato e aplicação a partir de R$ 1 (inicialmente em poucas instituições).
+            Esses títulos têm regras próprias e <strong>não estão no simulador abaixo</strong>.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Segurança</h2>
+            <p>O Tesouro Direto é considerado o investimento de <strong>menor risco de crédito do Brasil</strong>, porque quem deve é o próprio Governo Federal. Por isso <strong>não existe FGC</strong> nos títulos públicos:
+            ele não é necessário, já que quem garante o pagamento é o Tesouro Nacional. Os títulos ficam registrados em seu nome na <strong>B3</strong> (custódia), separados do patrimônio da corretora.</p>
+
+            <h3>Liquidez e a marcação a mercado</h3>
+            <p>Você pode vender o título <strong>antes do vencimento</strong>, em geral com a venda no dia seguinte, ao <strong>preço de mercado</strong> do dia. E aí está o ponto de atenção: se as taxas de juros de mercado subiram desde a sua compra,
+            o preço do seu título cai, e você pode vender com <strong>prejuízo</strong>. Se as taxas caíram, você pode vender com lucro extra.</p>
+            <p class="destaque"><strong>Exemplo:</strong> você comprou um Prefixado a 12% ao ano. Depois, o mercado passou a pagar 14% em títulos novos. Quem quiser comprar o seu, vai exigir um preço menor, para também ganhar 14%.
+            Se você <strong>segurar até o vencimento</strong>, recebe exatamente o que foi combinado (12%).</p>
+            <p>Quanto <strong>mais longo o vencimento</strong>, maior a oscilação (o Selic quase não oscila; um IPCA+ de 2045 oscila muito). Por isso a regra de ouro é: <strong>escolha o vencimento de acordo com o prazo em que você vai precisar do dinheiro</strong>.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A mordida do Leão: Imposto de Renda</h2>
+            <p>O imposto incide <strong>apenas sobre o que rendeu</strong>, pela mesma <strong>Tabela Regressiva</strong> dos CDBs:</p>
+            <table class="tabela-ir">
+                <thead>
+                    <tr><th>Tempo de aplicação</th><th>Alíquota sobre o lucro</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Até 180 dias</td><td class="aliq">22,5%</td></tr>
+                    <tr><td>De 181 a 360 dias</td><td class="aliq">20%</td></tr>
+                    <tr><td>De 361 a 720 dias</td><td class="aliq">17,5%</td></tr>
+                    <tr><td>Acima de 720 dias</td><td class="aliq">15% (a menor!)</td></tr>
+                </tbody>
+            </table>
+            <p>O imposto é descontado na fonte, quando você vende ou no vencimento. Nos <strong>títulos com cupom</strong>, cada cupom é tributado no dia em que é pago, pela alíquota do tempo desde a compra
+            (por isso os primeiros cupons perdem mais para o Leão).</p>
+
+            <h3>Taxa de custódia da B3</h3>
+            <p>Além do IR, a B3 cobra <strong>0,20% ao ano</strong> sobre o valor dos seus títulos (cobrança proporcional, junto com a venda, o vencimento ou o pagamento de cupons). No <strong>Tesouro Selic</strong> há isenção para a parte até
+            <strong>R$ 10.000</strong> por CPF; nos demais títulos, a taxa vale desde o primeiro real. Algumas corretoras também cobram taxas próprias; confira antes. O simulador já desconta os 0,20% da B3.</p>
+            <p class="calc-nota">Resgates com menos de 30 dias também pagam IOF (o simulador considera prazos maiores). Regras e taxas podem mudar: confira no site do Tesouro Direto antes de investir.</p>
+        </section>
+{% endblock %}
+
+{% block simule_titulo %}Simule o seu Tesouro Direto{% endblock %}
+{% block simule_intro %}Escolha o título e preencha os campos habilitados. O simulador considera que você <strong>segura o título até o fim do período</strong>, desconta a taxa de custódia da B3 e o Imposto de Renda,
+            e, nos títulos com juros semestrais, mostra os cupons.{% endblock %}
+{% block nota_taxa %}<strong>Qual taxa usar?</strong> No Tesouro Direto, a taxa do Prefixado e do IPCA+ aparece na tela de compra do título. A Selic de hoje está no site do Banco Central.
+                        Se quiser simular a Selic mudando, informe a Selic estimada e em quantos meses ela chega lá.{% endblock %}
+{% block nota_calculo %}<strong>Como calculamos:</strong> aportes no fim de cada mês, todos na mesma taxa que você informou (na vida real, cada compra mensal usa a taxa do dia). O IR é separado por aporte (e, nos cupons, por data de pagamento).
+                        Os 0,20% de custódia saem do patrimônio todo mês. Não simulamos a marcação a mercado nem o IOF. Estimativa educacional.{% endblock %}
+
+{% block resumo %}
+            <p>O Tesouro Direto é seguro, barato e acessível. O <strong>Selic</strong> serve para reserva e curto prazo; o <strong>Prefixado</strong>, para quem quer saber o valor exato no vencimento;
+            e o <strong>IPCA+</strong>, para proteger o poder de compra no longo prazo. Escolha o vencimento de acordo com a data em que vai precisar do dinheiro, e lembre-se: <strong>segurar até o vencimento</strong> evita
+            o risco de oscilação de preço.</p>
+{% endblock %}

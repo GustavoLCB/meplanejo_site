@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block titulo %}Me Planejo - Plano de Metas{% endblock %}
+{% block extra_css %}
+    <style>
+        .input-simulador { width: 100%; padding: 18px; font-size: 1.1rem; background: rgba(0,0,0,0.3); color: white; border: 1px solid rgba(255,255,255,0.1); border-radius: 5px; margin-bottom: 15px; }
+        .card-resultado { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); padding: 50px; border-radius: 12px; border: 1px solid rgba(57, 255, 20, 0.3); height: 100%; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); }
+        .res-valor-principal { font-size: 4.5rem; font-weight: 700; color: #39ff14; text-shadow: 0 0 20px rgba(57, 255, 20, 0.4); line-height: 1; }
+    </style>
+{% endblock %}
+{% block conteudo %}
+        <div class="form-container-modern" style="max-width: 1200px; margin: 40px auto;">
+            <h1 style="text-align: center; font-weight: 100; letter-spacing: 10px; margin-bottom: 50px; color: #fff; text-transform: uppercase;">Plano de Metas</h1>
+            <div class="grid-2col">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="input-group">
+                            <label style="color: #39ff14; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 10px;">{{ field.label }}</label>
+                            {{ field }}
+                            {% for erro in field.errors %}<small class="erro-campo">{{ erro }}</small>{% endfor %}
+                            {% if field.help_text %}<div class="ajuda">{{ field.help_text|safe }}</div>{% endif %}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" style="width: 100%; padding: 25px; font-weight: 700; text-transform: uppercase; background: transparent; border: 1px solid #39ff14; color: #39ff14; cursor: pointer;">Gerar Plano Mensal</button>
+                </form>
+                <div class="card-resultado">
+                    {% if resultado %}
+                        {% if resultado.atingida %}
+                        <p style="color: #39ff14; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">Meta já atingida!</p>
+                        <h2 class="res-valor-principal" style="font-size: 3rem;">Sem aportes</h2>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-top: 20px;">
+                            Em {{ resultado.tempo }} meses, só os juros sobre os seus <strong>R$ {{ resultado.inicial }}</strong>
+                            (taxa de {{ resultado.taxa_anual }}% ao ano) fazem esse valor chegar a <strong style="color:#39ff14;">R$ {{ resultado.inicial_no_fim }}</strong>,
+                            que é <strong>R$ {{ resultado.sobra }}</strong> acima da sua meta de R$ {{ resultado.objetivo }}.
+                            Você não precisa guardar mais nada por mês. Se quiser, reduza o prazo ou a taxa esperada para ver quando o aporte passa a ser necessário.
+                        </p>
+                        {% else %}
+                        <p style="color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px;">Para atingir R$ {{ resultado.objetivo }}</p>
+                        <h2 class="res-valor-principal">R$ {{ resultado.aporte }}</h2>
+                        <p style="color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; margin-top: 20px;">Invista por mês</p>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.8; margin-top: 25px; font-size: 0.95rem;">
+                            Em {{ resultado.tempo }} meses, você vai aportar <strong>R$ {{ resultado.total_aportado }}</strong>
+                            {% if resultado.inicial != '0,00' %}(além dos R$ {{ resultado.inicial }} que já tem, que crescem para R$ {{ resultado.inicial_no_fim }}){% endif %}
+                            e os juros somarão <strong style="color:#39ff14;">R$ {{ resultado.juros }}</strong>.
+                            Taxa equivalente: {{ resultado.taxa_anual }}% ao ano ({{ resultado.taxa_mensal }}% ao mês).
+                        </p>
+                        {% endif %}
+                        <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 20px;">Valores brutos, antes do Imposto de Renda; aportes no fim de cada mês.</p>
+                    {% else %}
+                        <p style="text-align: center; color: rgba(255,255,255,0.3); line-height: 1.6;">Defina sua meta financeira e o prazo para descobrir o plano mensal.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% include 'produtos/_calc_js.html' %}
+{% endblock %}

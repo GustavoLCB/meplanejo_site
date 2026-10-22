@@ -1,0 +1,354 @@
+/* Importação de fontes: Fina e Elegante */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,700&display=swap');
+
+:root {
+    --primary-blue: #001233;
+    --electric-blue: #0056ff;
+    --accent-neon: #39ff14; /* Verde neon das moedas */
+    --text-white: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.7);
+    --sidebar-width: 260px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--text-white);
+    background: 
+        linear-gradient(135deg, rgba(0, 18, 51, 0.95) 0%, rgba(0, 86, 255, 0.5) 100%), 
+        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* === NAVBAR === */
+.navbar {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left { display: flex; align-items: center; gap: 15px; }
+.menu-btn { background: transparent; border: none; color: var(--accent-neon); font-size: 1.8rem; cursor: pointer; }
+.logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase; }
+.logo a { color: var(--accent-neon); text-decoration: none; }
+
+.nav-center { display: flex; }
+.nav-center a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.75rem;
+    margin: 0 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: 0.4s;
+}
+.nav-center a:hover { color: var(--accent-neon); letter-spacing: 4px; }
+
+/* === SIDEBAR === */
+.sidebar {
+    position: fixed; left: calc(-1 * var(--sidebar-width)); top: 0;
+    width: var(--sidebar-width); height: 100%;
+    background-color: var(--accent-neon);
+    transition: 0.4s; z-index: 2000; padding-top: 80px;
+}
+.sidebar.active { left: 0; }
+.sidebar-links a {
+    display: block; color: #001233; padding: 15px 30px;
+    text-decoration: none; font-weight: 700; text-transform: uppercase;
+}
+
+/* === HERO SECTION === */
+.hero-section { padding: 100px 20px 50px; text-align: center; }
+.hero-title { font-size: 3.5rem; font-weight: 100; text-transform: uppercase; letter-spacing: 12px; margin-bottom: 20px; }
+.hero-subtitle { font-size: 1rem; color: var(--text-dim); }
+
+/* === CENTRALIZAÇÃO DOS CARDS NA HOME === */
+.investiments-list { 
+    display: flex !important; /* Força Flexbox */
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards na página */
+    gap: 30px; 
+    max-width: 1200px; /* Aumentei um pouco para caber melhor os cards em coluna */
+    margin: 60px auto; 
+    padding: 0 20px; 
+}
+
+/* === ESTILO DO CARD INDIVIDUAL === */
+.invest-item { 
+    flex: 0 1 350px; /* Largura fixa ideal para layout em coluna */
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    padding: 40px 30px; /* Mais padding vertical */
+    border-radius: 8px; 
+    min-height: 400px; /* Altura mínima maior para acomodar a coluna */
+    
+    /* MUDANÇA CHAVE: Layout Interno em Coluna */
+    display: flex; 
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: center;    /* Centraliza os elementos horizontalmente DENTRO do card */
+    text-align: center;     /* Centraliza todos os textos */
+    justify-content: space-between; /* Empurra o botão para o final se o texto for curto */
+    
+    transition: 0.3s; 
+}
+
+.invest-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(57, 255, 20, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Estilos internos do card (removendo inline do HTML) */
+.invest-icon-box {
+    font-size: 3rem;
+    color: var(--accent-neon);
+    margin-bottom: 20px; /* Espaço abaixo do ícone */
+}
+
+.invest-info span {
+    font-size: 0.7rem;
+    color: var(--accent-neon);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.invest-title {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.invest-info p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px; /* Espaço antes do botão */
+}
+
+/* Container do botão para garantir centralização */
+.invest-action {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Garante que fique no fundo se sobrar espaço */
+}
+
+/* === GUIA DE PRODUTOS (ESTILO ACORDEÃO SEM JS) === */
+.invest-list-vertical details {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.invest-list-vertical summary {
+    padding: 18px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    cursor: pointer;
+    list-style: none; /* Remove a seta padrão */
+}
+
+.invest-list-vertical summary:hover {
+    color: var(--accent-neon);
+    background: rgba(57, 255, 20, 0.05);
+}
+
+.invest-list-vertical p {
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.2);
+    line-height: 1.6;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(57, 255, 20, 0.2);
+    text-align: left; /* Mantém o texto explicativo alinhado à esquerda para leitura */
+}
+
+/* === FORMULÁRIOS E INPUTS === */
+.form-container-modern {
+    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1); padding: 60px;
+    border-radius: 4px; max-width: 1000px; margin: 0 auto;
+}
+
+.input-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.input-group label { color: var(--accent-neon); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+
+input[type="number"], .input-simulador {
+    background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px; color: white; font-family: inherit; border-radius: 2px; width: 100%;
+}
+
+/* Remove as setinhas padrão do input number */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.btn-submit-neon {
+    background: var(--accent-neon); color: #000; padding: 20px; border: none;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 4px; cursor: pointer; transition: 0.3s;
+}
+.btn-submit-neon:hover { background: #fff; }
+
+.footer { padding: 40px; text-align: center; font-size: 0.7rem; letter-spacing: 3px; color: var(--text-dim); margin-top: auto;}
+
+/* ==========================================================
+   AJUSTES GERAIS (compartilhados por todas as páginas)
+   ========================================================== */
+.nav-center a, .nav-left .logo a, .nav-right, .menu-btn {
+    color: var(--accent-neon) !important;
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+    font-weight: 700;
+    transition: 0.3s;
+}
+.nav-center a:hover { color: #fff !important; text-shadow: none; }
+.nav-right { font-size: 0.8rem; }
+
+main { flex: 1; width: 100%; }
+.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.erro-campo { color: #ff6b6b; font-size: 0.75rem; letter-spacing: 1px; font-weight: 700; }
+
+.btn-video.btn-em-breve { opacity: 0.35; border-color: rgba(255, 255, 255, 0.4); color: rgba(255, 255, 255, 0.7); cursor: default; pointer-events: none; }
+
+/* ==========================================================
+   PÁGINAS DE PRODUTO (CDB e, depois, os demais)
+   ========================================================== */
+.produto-hero { padding: 80px 20px 30px; text-align: center; }
+.produto-hero .hero-title { font-size: 3.5rem; }
+.produto-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+
+.painel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    margin-bottom: 40px;
+}
+.painel h2 {
+    color: var(--accent-neon);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+}
+.painel h3 { color: #fff; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; margin: 30px 0 10px; }
+.painel p { color: rgba(255, 255, 255, 0.8); line-height: 1.8; font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
+.painel strong { color: var(--accent-neon); font-weight: 700; }
+.painel .destaque { border-left: 3px solid var(--accent-neon); padding: 5px 0 5px 20px; background: rgba(57, 255, 20, 0.04); }
+
+.cards-tipos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 25px 0; }
+.card-tipo { background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 25px; }
+.card-tipo h3 { margin-top: 0; color: var(--accent-neon); }
+.card-tipo p { font-size: 0.85rem; margin-bottom: 0; text-align: left; }
+
+.tabela-ir { width: 100%; border-collapse: collapse; margin: 20px 0; color: #fff; font-size: 0.9rem; }
+.tabela-ir th { text-align: left; padding: 14px; border-bottom: 2px solid var(--accent-neon); color: var(--accent-neon); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
+.tabela-ir td { padding: 12px 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+.tabela-ir td.aliq { font-weight: 700; color: var(--accent-neon); }
+
+/* Calculadora */
+.calc-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: start; }
+.calc-nota { font-size: 0.75rem !important; color: rgba(255, 255, 255, 0.5) !important; line-height: 1.7 !important; letter-spacing: 1px; text-align: left !important; }
+.calc-vazio { text-align: center; color: rgba(255, 255, 255, 0.3); line-height: 1.6; padding: 80px 20px; }
+
+.res-box { background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 35px; }
+.res-rotulo { color: var(--accent-neon); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
+.res-final { font-size: 3.2rem; font-weight: 700; color: var(--accent-neon); text-shadow: 0 0 20px rgba(57, 255, 20, 0.4); line-height: 1.1; margin: 5px 0 25px; letter-spacing: 0; }
+.res-linhas { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.res-linha { display: flex; justify-content: space-between; gap: 15px; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); letter-spacing: 1px; }
+.res-linha span:last-child { font-weight: 700; color: #fff; white-space: nowrap; }
+.res-linha.sub { padding-left: 18px; font-size: 0.8rem; color: rgba(255, 255, 255, 0.55); }
+.res-linha.total { border-bottom: 1px solid rgba(57, 255, 20, 0.4); }
+.res-linha.total span:last-child { color: var(--accent-neon); }
+.res-linha.menos span:last-child { color: #ff8a8a; }
+
+.barra { display: flex; height: 22px; border-radius: 4px; overflow: hidden; margin: 25px 0 12px; background: rgba(255, 255, 255, 0.05); }
+.barra .seg-aporte { background: var(--electric-blue); }
+.barra .seg-juros { background: var(--accent-neon); }
+.barra .seg-ir { background: #ff6b6b; }
+.legenda { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.72rem; color: rgba(255, 255, 255, 0.75); letter-spacing: 1px; }
+.legenda i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+details.evolucao { margin-top: 35px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; background: rgba(0, 0, 0, 0.2); }
+details.evolucao summary { padding: 16px 20px; cursor: pointer; color: #fff; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; list-style: none; }
+details.evolucao summary:hover { color: var(--accent-neon); }
+details.evolucao .tabela-scroll { overflow-x: auto; max-height: 460px; overflow-y: auto; padding: 0 20px 20px; }
+details.evolucao table { width: 100%; border-collapse: collapse; font-size: 0.82rem; color: #fff; }
+details.evolucao th { position: sticky; top: 0; background: #06173a; text-align: left; padding: 12px; border-bottom: 2px solid var(--accent-neon); color: var(--accent-neon); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+details.evolucao td { padding: 10px 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+
+.nav-produtos { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+.btn-outline-neon { display: inline-block; padding: 14px 28px; border: 1px solid var(--accent-neon); color: var(--accent-neon); text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border-radius: 2px; }
+.btn-outline-neon:hover { background: var(--accent-neon); color: #000; }
+
+/* Telas menores */
+@media (max-width: 900px) {
+    .navbar { height: auto; flex-wrap: wrap; gap: 10px; padding: 15px 20px; }
+    .nav-center { flex-wrap: wrap; justify-content: center; gap: 6px 0; }
+    .grid-2col, .calc-grid, .cards-tipos { grid-template-columns: 1fr; gap: 30px; }
+    .hero-title, .produto-hero .hero-title { font-size: 2rem; letter-spacing: 6px; }
+    .painel { padding: 28px 20px; }
+    .form-container-modern { padding: 30px 20px; }
+    .res-final { font-size: 2.2rem; }
+}
+
+/* ==========================================================
+   CAMPOS DAS PÁGINAS DE PRODUTO
+   ========================================================== */
+.input-simulador { width: 100%; padding: 16px; font-size: 1.05rem; background: rgba(0,0,0,0.3); color: white; border: 1px solid rgba(255,255,255,0.1); border-radius: 5px; margin-bottom: 8px; font-family: inherit; }
+.input-simulador:disabled { cursor: not-allowed; }
+select.input-simulador { cursor: pointer; }
+select.input-simulador option { background: #001233; color: #fff; }
+.checkbox-row { display: flex; align-items: center; gap: 15px; flex-direction: row-reverse; justify-content: flex-end; margin: 10px 0 25px; }
+.checkbox-row label { color: var(--accent-neon); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; }
+.check-simulador { width: 22px; height: 22px; cursor: pointer; accent-color: var(--accent-neon); }
+.tabela-scroll-x { overflow-x: auto; }
+.res-linha.sub.perfil span:last-child { text-align: right; white-space: normal; }
+.cards-tipos.dois { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) { .cards-tipos.dois { grid-template-columns: 1fr; } }
+
+/* Comparativo entre tabelas (Previdência) */
+.comparativo-tabelas { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.col-tabela { background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 18px; }
+.col-tabela.melhor { border-color: var(--accent-neon); box-shadow: 0 0 15px rgba(57, 255, 20, 0.15); }
+.col-tabela h4 { color: #fff; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.col-tabela .res-linha { font-size: 0.8rem; flex-wrap: wrap; }
+.selo { display: inline-block; margin-top: 10px; font-size: 0.65rem; color: #000; background: var(--accent-neon); padding: 4px 8px; border-radius: 2px; letter-spacing: 1px; font-weight: 700; text-transform: uppercase; }
+@media (max-width: 900px) { .comparativo-tabelas { grid-template-columns: 1fr; } }
+
+
+/* Textos de ajuda abaixo dos campos */
+.ajuda { font-size: 0.72rem; line-height: 1.7; color: rgba(255, 255, 255, 0.62); letter-spacing: 1px; margin: 2px 0 6px; }
+.ajuda strong { color: rgba(255, 255, 255, 0.9); }
+.ajuda-calculo { display: block; color: var(--accent-neon); font-size: 0.72rem; letter-spacing: 1px; margin-bottom: 6px; font-weight: 700; }
+details.ajuda-det { margin-top: 8px; border-left: 2px solid rgba(57, 255, 20, 0.5); background: rgba(0, 0, 0, 0.18); border-radius: 0 4px 4px 0; }
+details.ajuda-det summary { cursor: pointer; padding: 9px 12px; color: var(--accent-neon); font-weight: 700; font-size: 0.7rem; letter-spacing: 1px; list-style: none; }
+details.ajuda-det summary:hover { color: #fff; }
+details.ajuda-det p { padding: 0 12px 10px; font-size: 0.74rem; line-height: 1.8; color: rgba(255, 255, 255, 0.8); text-align: left; }
+details.ajuda-det[open] summary { padding-bottom: 6px; }

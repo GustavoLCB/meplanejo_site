@@ -1,0 +1,23 @@
+{% if evolucao %}
+<details class="evolucao">
+    <summary>Ver evolução mês a mês</summary>
+    <div class="tabela-scroll">
+        <table>
+            <thead>
+                <tr><th>Mês</th><th>Total aportado</th><th>Saldo bruto</th><th>Líquido (regressiva)</th><th>Líquido (progressiva)</th></tr>
+            </thead>
+            <tbody>
+                {% for item in evolucao %}
+                <tr>
+                    <td>{{ item.mes }}</td>
+                    <td>R$ {{ item.investido }}</td>
+                    <td>R$ {{ item.bruto }}</td>
+                    <td>R$ {{ item.liq_reg }}</td>
+                    <td>R$ {{ item.liq_prog }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</details>
+{% endif %}

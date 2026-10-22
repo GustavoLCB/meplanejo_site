@@ -1,0 +1,74 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}CRI / CRA{% endblock %}
+{% block hero_titulo %}CRI / CRA{% endblock %}
+{% block hero_sub %}Certificado de Recebíveis Imobiliários e do Agronegócio{% endblock %}
+
+{% block textos %}
+        <section class="painel">
+            <h2>O que é o CRI / CRA?</h2>
+            <p>Os CRIs e CRAs são títulos que financiam os setores <strong>imobiliário</strong> (CRI) e do <strong>agronegócio</strong> (CRA). Se o CDB era um
+            empréstimo para o banco, aqui o jogo muda: você está financiando o progresso do país.</p>
+
+            <h3>A analogia do prédio e da safra</h3>
+            <p>Imagine que a Construtora Tijolão está construindo um prédio enorme. Ela vendeu os apartamentos na planta, e os compradores vão pagar
+            em suaves prestações nos próximos 10 anos. O problema? A construtora precisa do dinheiro <em>agora</em> para comprar cimento, ferro e pagar os pedreiros.</p>
+            <p>Então ela procura uma <strong>securitizadora</strong> e diz: "Eu tenho R$ 10 milhões para receber desses compradores. Transforme essas promessas
+            de pagamento em títulos e venda para investidores. Eu pego o dinheiro hoje, e os investidores recebem as prestações, com juros, no futuro."</p>
+            <p>Se o dinheiro for para construir prédios ou galpões, nasce o <strong>CRI</strong>. Se for para um grande produtor de soja comprar sementes e
+            colheitadeiras, nasce o <strong>CRA</strong>.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Como o CRI / CRA rende?</h2>
+            <p>Os CRIs e CRAs costumam ter prazos longos (de 2 a 10 anos ou mais) e podem render de várias formas:</p>
+            <div class="cards-tipos">
+                <div class="card-tipo">
+                    <h3>Prefixado</h3>
+                    <p>Taxa fixa combinada na compra. Exemplo: 13% ao ano.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Pós-fixado</h3>
+                    <p>Percentual do CDI ou CDI + uma taxa. Exemplo: CDI + 2% ao ano.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Híbrido</h3>
+                    <p>É o mais comum: inflação (IPCA) + uma taxa fixa. Exemplo: IPCA + 7% ao ano.</p>
+                </div>
+            </div>
+            <p>Alguns pagam juros periodicamente (os cupons) e devolvem o valor investido só no final. O simulador abaixo considera que tudo é
+            reinvestido, ou seja, os juros trabalham sobre juros até o fim do período.</p>
+            <p class="calc-nota">Parte das ofertas é restrita a investidores qualificados, e a venda antes do vencimento depende de haver comprador no
+            mercado, por isso a liquidez costuma ser baixa.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Segurança: o FGC</h2>
+            <p>Aqui está o <strong>ponto de atenção máxima</strong>: CRI e CRA <strong>NÃO têm a proteção do FGC</strong>. O "cinto de segurança" que
+            existia no CDB, na LCI e na LCA não está presente.</p>
+            <p>Se a construtora quebrar ou o produtor rural não pagar a dívida, não existe um fundo garantidor para devolver o seu dinheiro
+            automaticamente. Por isso, as vantagens de não pagar imposto e de, geralmente, oferecerem juros maiores vêm com <strong>risco mais alto</strong>:
+            você não está emprestando para um banco grande, mas para o sucesso de um projeto específico.</p>
+            <h3>Como reduzir o risco?</h3>
+            <p>Olhe a <strong>nota de risco (rating)</strong> da emissão, as <strong>garantias</strong> (como imóveis ou recebíveis dados em garantia), a
+            qualidade de quem vai pagar a dívida e a <strong>diversificação</strong>: nunca concentre muito dinheiro em um único papel.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A mordida do Leão: Imposto de Renda</h2>
+            <p>Esse é o "superpoder" do CRI e do CRA: eles são <strong>isentos de Imposto de Renda para pessoas físicas</strong>, independentemente do
+            tempo de aplicação. Diferente do CDB, o Leão não leva nada.</p>
+            <p>O governo entende que o setor imobiliário e o agronegócio são vitais para o Brasil e, para incentivar as pessoas a investir neles, abre
+            mão de cobrar imposto.</p>
+            <p class="calc-nota">Em 2025 chegou a ser proposta uma cobrança de 5% sobre novas emissões, mas a medida perdeu a validade e a isenção
+            continua valendo. Como leis podem mudar, vale conferir a regra vigente antes de investir.</p>
+        </section>
+{% endblock %}
+
+{% block simule_titulo %}Simule o seu CRI / CRA{% endblock %}
+{% block nota_ir %}como CRI e CRA são isentos, <strong>não há desconto de Imposto de Renda</strong>{% endblock %}
+
+{% block resumo %}
+            <p>CRI e CRA unem a <strong>isenção de Imposto de Renda</strong> a taxas normalmente mais altas, mas <strong>sem a proteção do FGC</strong>.
+            São indicados para quem já tem uma base segura e quer buscar mais retorno com consciência do risco, escolhendo bem os papéis
+            e diversificando.</p>
+{% endblock %}

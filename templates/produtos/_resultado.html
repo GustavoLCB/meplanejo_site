@@ -1,0 +1,47 @@
+{% if resultado %}
+<div class="res-box">
+    <p class="res-rotulo">Valor líquido final em {{ resultado.periodos }} meses</p>
+    <h2 class="res-final" style="text-transform: none;">R$ {{ resultado.liquido }}</h2>
+
+    <div class="res-linhas">
+        {% if resultado.perfil %}<div class="res-linha sub perfil"><span>Tipo de fundo</span><span>{{ resultado.perfil }}</span></div>{% endif %}
+        <div class="res-linha sub"><span>Taxa considerada ({{ resultado.tipo_taxa }})</span><span>{% if resultado.taxa_exibida %}{{ resultado.taxa_exibida }}{% else %}{{ resultado.taxa_anual }}% a.a.{% endif %}</span></div>
+        <div class="res-linha"><span>Valor inicial</span><span>R$ {{ resultado.inicial }}</span></div>
+        <div class="res-linha"><span>Aportes mensais somados</span><span>R$ {{ resultado.aportes_mensais }}</span></div>
+        <div class="res-linha total"><span>Total aportado (seu dinheiro)</span><span>R$ {{ resultado.investido }}</span></div>
+
+        <div class="res-linha"><span>Juros brutos recebidos</span><span>R$ {{ resultado.juros_brutos }}</span></div>
+        <div class="res-linha menos"><span>(-) Imposto de Renda pago{% if resultado.isento %} (isento){% endif %}</span><span>R$ {{ resultado.ir }}</span></div>
+        {% if resultado.fundo and resultado.tem_comecotas %}
+        <div class="res-linha sub"><span>Come-cotas (maio e novembro)</span><span>R$ {{ resultado.ir_comecotas }}</span></div>
+        <div class="res-linha sub"><span>Ajuste de IR no resgate</span><span>R$ {{ resultado.ir_resgate }}</span></div>
+        {% endif %}
+        {% if resultado.cupons_pagos %}
+        <div class="res-linha sub"><span>Cupons de juros recebidos (brutos){% if resultado.reinvestir %}, reinvestidos{% endif %}</span><span>R$ {{ resultado.cupons_pagos }}</span></div>
+        <div class="res-linha sub"><span>IR retido nos cupons</span><span>R$ {{ resultado.ir_cupons }}</span></div>
+        {% endif %}
+        {% if resultado.custodia_b3 %}
+        <div class="res-linha sub"><span>Taxa de custódia da B3 (já descontada)</span><span>R$ {{ resultado.custodia_b3 }}</span></div>
+        {% endif %}
+        <div class="res-linha sub"><span>Alíquota efetiva sobre os juros</span><span>{{ resultado.aliquota_efetiva }}%</span></div>
+        <div class="res-linha total"><span>Juros líquidos (seu ganho)</span><span>R$ {{ resultado.juros_liquidos }}</span></div>
+
+        <div class="res-linha"><span>Rentabilidade líquida no período</span><span>{{ resultado.rentabilidade_liquida }}%</span></div>
+    </div>
+
+    <div class="barra" role="img" aria-label="Composição do valor bruto: aportes, juros líquidos e imposto de renda">
+        <div class="seg-aporte" style="width: {{ resultado.pct_investido }}%"></div>
+        <div class="seg-juros" style="width: {{ resultado.pct_juros }}%"></div>
+        <div class="seg-ir" style="width: {{ resultado.pct_ir }}%"></div>
+    </div>
+    <div class="legenda">
+        <span><i style="background: var(--electric-blue)"></i>Seu dinheiro</span>
+        <span><i style="background: var(--accent-neon)"></i>Juros líquidos</span>
+        <span><i style="background: #ff6b6b"></i>Imposto de Renda</span>
+    </div>
+</div>
+{% else %}
+<div class="res-box">
+    <p class="calc-vazio">Preencha os dados ao lado para ver o resultado da sua simulação.</p>
+</div>
+{% endif %}

@@ -1,0 +1,70 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}LCI / LCA{% endblock %}
+{% block hero_titulo %}LCI / LCA{% endblock %}
+{% block hero_sub %}Letra de Crédito Imobiliário e Letra de Crédito do Agronegócio{% endblock %}
+
+{% block textos %}
+        <section class="painel">
+            <h2>O que é a LCI / LCA?</h2>
+            <p>A <strong>LCI</strong> (Letra de Crédito Imobiliário) e a <strong>LCA</strong> (Letra de Crédito do Agronegócio) são títulos de
+            renda fixa emitidos por <strong>bancos</strong>. Como no CDB, você empresta dinheiro ao banco e ele devolve com juros. A diferença
+            está no destino do dinheiro: o banco usa o que capta para financiar o <strong>setor imobiliário</strong> (LCI) ou o
+            <strong>agronegócio</strong> (LCA).</p>
+            <p>Muita gente chama de <strong>"o melhor dos dois mundos"</strong>: elas têm a proteção do FGC, como o CDB, e ainda são
+            <strong>isentas de Imposto de Renda</strong> para pessoas físicas.</p>
+
+            <h3>O ponto de atenção: a carência</h3>
+            <p>Como o banco precisa emprestar esse dinheiro para projetos de longo prazo (construir um prédio, financiar uma safra), esses
+            títulos têm <strong>prazo mínimo</strong> antes de você poder resgatar. Pelas regras atuais, é de <strong>6 meses</strong> para as letras
+            que rendem pré ou pós-fixado (CDI) e maior para as atreladas à inflação (IPCA). Depois da carência, algumas têm liquidez diária
+            e outras só pagam no vencimento. Confira sempre as condições do título antes de investir.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Como a LCI / LCA rende?</h2>
+            <p>As formas de rendimento são as mesmas do CDB:</p>
+            <div class="cards-tipos">
+                <div class="card-tipo">
+                    <h3>Prefixada</h3>
+                    <p>Taxa combinada na compra. Exemplo: 11% ao ano. Você sabe quanto vai receber no vencimento.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Pós-fixada</h3>
+                    <p>Uma porcentagem do CDI. Como o imposto é zero, os percentuais costumam ser menores que os do CDB. Exemplo: 90% do CDI.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Híbrida</h3>
+                    <p>Taxa fixa somada à inflação (IPCA). Exemplo: IPCA + 5% ao ano.</p>
+                </div>
+            </div>
+            <p class="destaque">Como comparar com um CDB? Uma LCI/LCA que paga <strong>90% do CDI</strong>, sem imposto, rende o mesmo que um CDB de
+            cerca de <strong>106% do CDI</strong> mantido por mais de 2 anos (IR de 15%): 90 ÷ 0,85 ≈ 105,9%. Por isso, a taxa da LCI/LCA aparenta
+            ser menor, mas o que cai no seu bolso pode ser igual ou maior.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Segurança: o FGC</h2>
+            <p>As LCIs e LCAs contam com a proteção do <strong>FGC (Fundo Garantidor de Créditos)</strong>. Se o banco emissor quebrar, o FGC devolve
+            o seu dinheiro até o limite de <strong>R$ 250 mil por CPF, por instituição financeira</strong>, respeitado um teto global de
+            R$ 1 milhão a cada 4 anos.</p>
+            <p class="destaque">Atenção: o limite vale para <strong>todos</strong> os seus produtos cobertos no mesmo banco somados (CDB, LCI, LCA...).
+            Acima de R$ 250 mil, divida entre instituições diferentes.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A mordida do Leão: Imposto de Renda</h2>
+            <p>Aqui o Leão fica de fora: LCI e LCA são <strong>isentas de Imposto de Renda para pessoas físicas</strong>. Todo o rendimento é seu, e você
+            não precisa se preocupar com a Tabela Regressiva.</p>
+            <p>O governo abre mão do imposto para incentivar o crédito imobiliário e o agronegócio, setores fundamentais para a economia do país.</p>
+            <p class="calc-nota">Em 2025 chegou a ser proposta uma cobrança de 5% sobre novas emissões, mas a medida perdeu a validade e a isenção
+            continua valendo. Como leis podem mudar, vale conferir a regra vigente antes de investir.</p>
+        </section>
+{% endblock %}
+
+{% block simule_titulo %}Simule a sua LCI / LCA{% endblock %}
+{% block nota_ir %}como LCI e LCA são isentas, <strong>não há desconto de Imposto de Renda</strong>{% endblock %}
+
+{% block resumo %}
+            <p>LCI e LCA reúnem o que muita gente procura: <strong>proteção do FGC</strong> e <strong>isenção de Imposto de Renda</strong>. Em troca,
+            você aceita uma carência e, geralmente, taxas nominais menores que as do CDB. Na hora de comparar, sempre leve em conta o imposto.</p>
+{% endblock %}

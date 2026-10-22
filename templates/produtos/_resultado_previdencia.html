@@ -1,0 +1,46 @@
+{% if resultado %}
+<div class="res-box">
+    <p class="res-rotulo">Saldo acumulado em {{ resultado.periodos }} meses ({{ resultado.plano }}), antes do IR</p>
+    <h2 class="res-final" style="text-transform: none;">R$ {{ resultado.bruto }}</h2>
+
+    <div class="res-linhas">
+        <div class="res-linha sub"><span>Rentabilidade considerada</span><span>{{ resultado.rentabilidade_anual }}% a.a.</span></div>
+        <div class="res-linha"><span>Valor inicial</span><span>R$ {{ resultado.inicial }}</span></div>
+        <div class="res-linha"><span>Aportes mensais somados</span><span>R$ {{ resultado.aportes_mensais }}</span></div>
+        <div class="res-linha total"><span>Total aportado (seu dinheiro)</span><span>R$ {{ resultado.investido }}</span></div>
+        <div class="res-linha total"><span>Rendimentos no período</span><span>R$ {{ resultado.rendimentos }}</span></div>
+    </div>
+
+    <p class="res-rotulo" style="margin: 30px 0 10px;">Se você resgatar tudo ao final</p>
+    <div class="comparativo-tabelas">
+        <div class="col-tabela {% if resultado.melhor == 'regressiva' %}melhor{% endif %}">
+            <h4>Tabela regressiva</h4>
+            <div class="res-linha"><span>IR</span><span>R$ {{ resultado.ir_regressiva }}</span></div>
+            <div class="res-linha sub"><span>Sobre o saldo</span><span>{{ resultado.aliq_efetiva_regressiva }}%</span></div>
+            <div class="res-linha total"><span>Líquido</span><span>R$ {{ resultado.liquido_regressiva }}</span></div>
+            {% if resultado.melhor == 'regressiva' %}<span class="selo">Mais vantajosa neste cenário</span>{% endif %}
+        </div>
+        <div class="col-tabela {% if resultado.melhor == 'progressiva' %}melhor{% endif %}">
+            <h4>Tabela progressiva ({{ resultado.aliquota_progressiva }}%)</h4>
+            <div class="res-linha"><span>IR</span><span>R$ {{ resultado.ir_progressiva }}</span></div>
+            <div class="res-linha sub"><span>Sobre o saldo</span><span>{{ resultado.aliq_efetiva_progressiva }}%</span></div>
+            <div class="res-linha total"><span>Líquido</span><span>R$ {{ resultado.liquido_progressiva }}</span></div>
+            {% if resultado.melhor == 'progressiva' %}<span class="selo">Mais vantajosa neste cenário</span>{% endif %}
+        </div>
+    </div>
+    <p class="calc-nota" style="margin-top: 15px;">Diferença entre as tabelas: R$ {{ resultado.diferenca }}.</p>
+
+    {% if resultado.pgbl %}
+    <div class="res-linhas" style="margin-top: 25px;">
+        <div class="res-linha"><span>Restituição de IR somada (benefício do PGBL)</span><span>R$ {{ resultado.beneficio_fiscal }}</span></div>
+        <div class="res-linha sub"><span>Líquido + restituição (regressiva)</span><span>R$ {{ resultado.total_regressiva }}</span></div>
+        <div class="res-linha sub"><span>Líquido + restituição (progressiva)</span><span>R$ {{ resultado.total_progressiva }}</span></div>
+    </div>
+    <p class="calc-nota" style="margin-top: 15px;">A restituição foi somada sem rendimento. Se você investir esse dinheiro de volta, o resultado melhora.</p>
+    {% endif %}
+</div>
+{% else %}
+<div class="res-box">
+    <p class="calc-vazio">Preencha os dados ao lado para ver o saldo acumulado e o imposto pelas duas tabelas.</p>
+</div>
+{% endif %}

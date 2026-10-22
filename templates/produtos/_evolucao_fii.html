@@ -1,0 +1,23 @@
+{% if evolucao %}
+<details class="evolucao">
+    <summary>Ver evolução mês a mês</summary>
+    <div class="tabela-scroll">
+        <table>
+            <thead>
+                <tr><th>Mês</th><th>Total aportado</th><th>Valor das cotas</th><th>Dividendo do mês</th><th>Dividendos acumulados</th></tr>
+            </thead>
+            <tbody>
+                {% for item in evolucao %}
+                <tr>
+                    <td>{{ item.mes }}</td>
+                    <td>R$ {{ item.investido }}</td>
+                    <td>R$ {{ item.valor }}</td>
+                    <td style="font-weight: 700; color: #39ff14;">R$ {{ item.dividendo }}</td>
+                    <td>R$ {{ item.dividendos_acum }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</details>
+{% endif %}

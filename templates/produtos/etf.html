@@ -1,0 +1,142 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}ETF{% endblock %}
+{% block hero_titulo %}ETF{% endblock %}
+{% block hero_sub %}Exchange Traded Fund: o fundo de índice negociado em bolsa{% endblock %}
+
+{% block textos %}
+        <section class="painel">
+            <h2>O que é um ETF?</h2>
+            <p>ETF significa <em>Exchange Traded Fund</em>, ou, em português, <strong>fundo de índice negociado em bolsa</strong>. É um fundo de investimento que, em vez de tentar
+            "adivinhar" quais ativos vão se dar bem, simplesmente <strong>copia (replica) um índice</strong>, como o Ibovespa, o S&amp;P 500 ou um índice de títulos públicos. Por isso se diz que
+            tem <strong>gestão passiva</strong>.</p>
+
+            <h3>A analogia da "cesta pronta"</h3>
+            <p>Imagine que você quer ter um pedacinho das 80 maiores empresas da bolsa. Comprar uma por uma exigiria muito dinheiro e trabalho. O ETF é uma <strong>cesta pronta</strong>:
+            ele já compra todas as ações do índice, na mesma proporção, e você compra <strong>uma única cota</strong> dessa cesta. Se o índice sobe 10%, a sua cota tende a subir quase 10%.</p>
+
+            <h3>Como se compra?</h3>
+            <p>O ETF é negociado na <strong>Bolsa de Valores (B3)</strong>, exatamente como uma ação: pelo home broker da sua corretora, com um código que costuma terminar em
+            <strong>11</strong> (por exemplo, BOVA11). Você pode comprar e vender em qualquer pregão, e uma cota custa, em geral, de algumas dezenas a poucas centenas de reais.
+            Os códigos citados nesta página são apenas exemplos, não recomendações.</p>
+
+            <div class="cards-tipos">
+                <div class="card-tipo">
+                    <h3>ETF de Ações do Brasil</h3>
+                    <p>Replica índices da bolsa brasileira. Exemplo: <strong>BOVA11</strong>, que segue o Ibovespa.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>ETF Internacional</h3>
+                    <p>Replica índices de outros países, como o S&amp;P 500 dos Estados Unidos. Exemplo: <strong>IVVB11</strong>. Além da bolsa, você fica exposto ao <strong>dólar</strong>.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>ETF de Renda Fixa</h3>
+                    <p>Replica um índice de títulos, em geral públicos. Exemplo: <strong>IMAB11</strong>, que segue títulos atrelados à inflação (IPCA). Existem também ETFs temáticos, de ouro e outros.</p>
+                </div>
+            </div>
+            <h3>Por que tanta gente gosta?</h3>
+            <p><strong>Custo baixo</strong> (taxas muito menores que as dos fundos ativos), <strong>diversificação</strong> com uma só compra, <strong>liquidez</strong> (venda no mesmo dia na bolsa),
+            <strong>transparência</strong> (a carteira acompanha um índice público) e <strong>acesso</strong>: com pouco dinheiro você investe em uma cesta que seria difícil montar sozinho.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Como o ETF rende?</h2>
+            <p>O retorno do ETF é, em essência, o <strong>retorno do índice, menos a taxa de administração</strong> (e uma pequena diferença chamada <em>tracking error</em>, o quanto o ETF se "desvia" do índice).
+            Ele vem de duas fontes:</p>
+            <div class="cards-tipos dois">
+                <div class="card-tipo">
+                    <h3>1. Variação do preço da cota</h3>
+                    <p>Quando o índice sobe, a cota sobe; quando cai, a cota cai. <strong>Exemplo:</strong> o índice rende 10% no ano e o ETF cobra 0,10% de taxa: a cota rende cerca de 9,9%.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>2. Proventos e juros</h3>
+                    <p>Dividendos das ações ou juros dos títulos. Na maioria dos ETFs, esse dinheiro é <strong>reinvestido dentro do próprio fundo</strong>, o que ajuda no longo prazo. Quando há distribuição em dinheiro, há retenção de 15% de IR na fonte.</p>
+                </div>
+            </div>
+            <p class="destaque"><strong>ETF de renda fixa não é poupança:</strong> o preço da cota oscila todos os dias com as taxas de juros do mercado. Se os juros sobem, a cota pode cair no curto prazo; quem mantém por tempo próximo ao prazo da carteira tende a receber o que o índice prometia.</p>
+            <p class="calc-nota">O preço negociado na bolsa fica muito próximo do valor da cota graças aos <em>formadores de mercado</em>, instituições que dão liquidez ao ETF. Em ETFs pouco negociados, a diferença pode ser maior.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Segurança: o FGC</h2>
+            <p>O ETF <strong>NÃO tem proteção do FGC</strong>. Isso significa que, se o índice cair, o seu dinheiro cai junto, e não existe garantia de devolução do valor investido. O principal risco é o <strong>risco de mercado</strong>:
+            o ETF de ações oscila com a bolsa, o internacional oscila com a bolsa e com o dólar, e o de renda fixa oscila com os juros.</p>
+            <p>O que protege o investidor é a estrutura: os ativos ficam em <strong>custódia separada</strong> do patrimônio da gestora e do administrador, sob regulação e fiscalização da CVM. Se a gestora tiver problemas, o ETF
+            pode ser transferido para outra instituição, e os ativos continuam sendo dos cotistas.</p>
+            <h3>Outros pontos de atenção</h3>
+            <p><strong>Tracking error</strong> (o ETF pode render um pouco menos que o índice); <strong>liquidez</strong> (ETFs pequenos têm pouco volume e preços menos precisos); <strong>risco cambial</strong> (ETFs internacionais);
+            e o risco de <strong>vender na hora errada</strong>: como a venda é pelo preço de mercado, quem precisa do dinheiro no meio de uma queda pode ter prejuízo.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A mordida do Leão: Imposto de Renda</h2>
+            <p>As regras mudam conforme o tipo de ETF:</p>
+            <div class="tabela-scroll-x">
+            <table class="tabela-ir">
+                <thead>
+                    <tr><th></th><th>ETF de ações (BOVA11, IVVB11...)</th><th>ETF de renda fixa (IMAB11...)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Alíquota</td><td class="aliq">15% sobre o lucro na venda</td><td>Retido na fonte, conforme o prazo médio da carteira do ETF (na prática, costuma ser 15%)</td></tr>
+                    <tr><td>Day trade (compra e venda no mesmo dia)</td><td class="aliq">20%</td><td>-</td></tr>
+                    <tr><td>Come-cotas</td><td class="aliq">Não tem</td><td class="aliq">Não tem</td></tr>
+                    <tr><td>Como pagar</td><td>Você calcula e paga o DARF (código 6015) até o último dia útil do mês seguinte</td><td>Automático, sem DARF</td></tr>
+                    <tr><td>Prejuízo</td><td>Pode ser compensado com lucros futuros de <strong>outros ETFs de renda variável</strong>, mas não com ações</td><td>Não compensa com outros ativos</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>Existe isenção como na venda de ações?</h3>
+            <p class="destaque"><strong>Não.</strong> A isenção de Imposto de Renda para vendas de até <strong>R$ 20 mil por mês</strong> vale só para <strong>ações</strong> (negociação comum). Nos ETFs,
+            <strong>todo lucro é tributado</strong>, qualquer que seja o valor vendido.</p>
+            <p><strong>Exemplo:</strong> você vendeu R$ 15.000 no mês, com R$ 1.000 de lucro.<br>
+            • Em <strong>ações</strong> (dentro do limite de R$ 20 mil de vendas no mês): lucro <strong>isento</strong>.<br>
+            • Em <strong>ETF de ações</strong>: 15% sobre os R$ 1.000 = <strong>R$ 150</strong> de imposto, pagos por DARF.</p>
+
+            <h3>Onde está a "eficiência tributária" do ETF?</h3>
+            <p><strong>Frente aos fundos de renda fixa tradicionais</strong>, o ETF não sofre o <strong>come-cotas</strong> (a cobrança antecipada de maio e novembro): o imposto só é pago na venda, então todo o seu dinheiro continua rendendo no meio do caminho.
+            Além disso, a alíquota do ETF de renda fixa depende do <strong>prazo médio da carteira</strong>, e não do tempo em que você ficou com a cota, de modo que, em carteiras longas, você paga 15% mesmo vendendo cedo, enquanto o fundo tradicional cobra mais em resgates de curto prazo.
+            O simulador abaixo mostra essa diferença em reais.</p>
+            <p><strong>Frente ao CDB</strong>, a vantagem tributária é pequena: o CDB também não tem come-cotas e chega a 15% após 2 anos. Os diferenciais do ETF são outros (diversificação, liquidez diária e custo baixo), e a contrapartida é a oscilação do preço e a ausência do FGC.</p>
+            <p class="calc-nota">A alíquota dos ETFs de renda fixa depende do prazo médio da carteira do ETF (materiais de mercado citam 15% para carteiras acima de 720 dias e patamares maiores para carteiras mais curtas). Confira com a gestora. Leis podem mudar, então verifique a regra vigente antes de investir.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A taxa de administração interfere na rentabilidade?</h2>
+            <p><strong>Sim, e muito, principalmente no longo prazo.</strong> A taxa é cobrada <strong>todos os dias, direto do patrimônio do fundo</strong>, e já vem embutida no preço da cota. Você nunca vê um boleto, mas a rentabilidade
+            que você recebe é sempre <strong>a do índice menos a taxa</strong>. Como o desconto se repete ano após ano, ele funciona como "juros compostos ao contrário".</p>
+            <p><strong>Exemplo:</strong> você investe R$ 10.000 por 20 anos em algo que rende 10% ao ano antes das taxas.</p>
+            <div class="tabela-scroll-x">
+            <table class="tabela-ir">
+                <thead>
+                    <tr><th>Taxa de administração</th><th>Valor após 20 anos (antes do IR)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0,10% ao ano (ETF barato)</td><td class="aliq">R$ 65.942</td></tr>
+                    <tr><td>0,20% ao ano</td><td class="aliq">R$ 64.635</td></tr>
+                    <tr><td>0,50% ao ano</td><td class="aliq">R$ 60.858</td></tr>
+                    <tr><td>2,00% ao ano (fundo ativo caro)</td><td class="aliq">R$ 44.913</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>Uma diferença que parece pequena (de 0,2% para 2% ao ano) faz o patrimônio final ser <strong>cerca de 30% menor</strong>. Os ETFs costumam cobrar de 0,10% a 0,50% ao ano, enquanto fundos ativos
+            costumam cobrar de 1,5% a 2% e, para justificar isso, precisam entregar retorno acima do índice de forma consistente, o que muitos não conseguem.</p>
+            <p class="destaque">Regra prática: antes de investir em qualquer fundo, olhe a <strong>taxa de administração</strong> (e a de performance, se houver). Entre dois produtos parecidos, o mais barato tende a deixar mais dinheiro no seu bolso.</p>
+        </section>
+{% endblock %}
+
+{% block simule_titulo %}Simule: ETF x Fundo Tradicional{% endblock %}
+{% block simule_intro %}Compare o resultado <strong>líquido</strong> de um ETF e de um fundo tradicional que rendem o mesmo antes das taxas. O simulador desconta a taxa de cada um,
+            o come-cotas (quando houver) e o Imposto de Renda, para você ver o quanto a <strong>taxa de administração</strong> e a <strong>tributação</strong> fazem diferença.{% endblock %}
+{% block nota_taxa %}<strong>Como comparar:</strong> escolha o tipo e informe a mesma rentabilidade bruta para os dois. As diferenças do resultado vêm das taxas e dos impostos.
+                        Use cenários conservadores: <strong>rentabilidade passada não garante a futura</strong>.{% endblock %}
+{% block nota_calculo %}<strong>Como calculamos:</strong> aportes no fim de cada mês. <strong>ETF:</strong> 15% sobre o lucro total, só na venda (sem come-cotas). <strong>Fundo de renda fixa:</strong> come-cotas de 15% em maio e novembro
+                        (começando em <strong>{{ mes_inicio_nome }}</strong>, mês atual) e ajuste no resgate pela tabela regressiva. <strong>Fundo de ações:</strong> 15% sobre o lucro no resgate. A taxa de administração é descontada
+                        do patrimônio todo ano. Consideramos ETF de renda fixa com carteira longa (15%). É uma estimativa educacional.{% endblock %}
+
+{% block resultado_bloco %}{% include 'produtos/_resultado_etf.html' %}{% endblock %}
+{% block evolucao_bloco %}{% include 'produtos/_evolucao_etf.html' %}{% endblock %}
+
+{% block resumo %}
+            <p>O ETF é uma forma <strong>simples, barata e diversificada</strong> de investir: você copia um índice, paga pouca taxa e só tem imposto na venda, sem come-cotas. Em compensação, não existe FGC, o preço oscila,
+            e <strong>não há a isenção de R$ 20 mil</strong> das ações. Olhe sempre o índice replicado, a taxa de administração e o seu prazo de investimento.</p>
+{% endblock %}

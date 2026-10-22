@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block titulo %}{% block titulo_produto %}{% endblock %} - Me Planejo{% endblock %}
+
+{% block conteudo %}
+    <section class="produto-hero">
+        <h1 class="hero-title">{% block hero_titulo %}{% endblock %}</h1>
+        <p class="hero-subtitle">{% block hero_sub %}{% endblock %}</p>
+    </section>
+
+    <div class="produto-wrap">
+
+        {% block textos %}{% endblock %}
+
+        <section class="painel" id="calculadora">
+            <h2>{% block simule_titulo %}{% endblock %}</h2>
+            <p>{% block simule_intro %}Preencha os campos e descubra quanto você teria <strong>líquido</strong> ao final, separando o que foi dinheiro seu,
+            o que foram juros e quanto ficou com o Leão.{% endblock %}</p>
+
+            <div class="calc-grid">
+                <form method="post" action="#calculadora" novalidate>
+                    {% csrf_token %}
+                    {% for e in form.non_field_errors %}<p class="erro-campo" style="margin-bottom: 15px;">{{ e }}</p>{% endfor %}
+                    {% for field in form %}
+                        {% if field.field.widget.input_type == 'checkbox' %}
+                        <div class="checkbox-row">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                        {% if field.help_text %}<div class="ajuda" style="margin-top: -8px; margin-bottom: 18px;">{{ field.help_text|safe }}</div>{% endif %}
+                        {% else %}
+                        <div class="input-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {% for e in field.errors %}<small class="erro-campo">{{ e }}</small>{% endfor %}
+                            {% if field.help_text %}<div class="ajuda">{{ field.help_text|safe }}</div>{% endif %}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    <button type="submit" class="btn-submit-neon" style="width: 100%; font-size: 1rem;">Calcular</button>
+
+                    <p class="calc-nota" style="margin-top: 25px;">
+                        {% block nota_taxa %}<strong>Qual taxa usar?</strong> Preencha a <strong>taxa prefixada</strong> (ex.: 12,50% ao ano) <u>ou</u> o <strong>percentual do CDI</strong>
+                        (ex.: 110%) junto com o CDI anual vigente. Ao preencher um, o outro é desabilitado automaticamente; apague o campo para trocar.{% endblock %}<br><br>
+                        {% block nota_calculo %}<strong>Como calculamos:</strong> aportes feitos no fim de cada mês; {% block nota_ir %}o IR é calculado separadamente para cada aporte, conforme o tempo
+                        que ele ficou aplicado (1 mês = 30 dias){% endblock %}. É uma estimativa educacional: não considera IOF nem mudanças na taxa ao longo do período.{% endblock %}
+                    </p>
+                </form>
+
+                <div>{% block resultado_bloco %}{% include 'produtos/_resultado.html' %}{% endblock %}</div>
+            </div>
+
+            {% block evolucao_bloco %}{% include 'produtos/_evolucao.html' %}{% endblock %}
+        </section>
+
+        <section class="painel">
+            <h2>Resumindo</h2>
+            {% block resumo %}{% endblock %}
+            <div class="nav-produtos" style="margin-top: 30px;">
+                <a href="{% url 'home' %}#investimentos" class="btn-outline-neon">&larr; Outros investimentos</a>
+                <a href="{% url 'simulador' %}" class="btn-outline-neon">Simulador geral &rarr;</a>
+            </div>
+        </section>
+
+    </div>
+    {% include 'produtos/_calc_js.html' %}
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}Fundos de Investimento{% endblock %}
+{% block hero_titulo %}Fundos de Investimento{% endblock %}
+{% block hero_sub %}Investindo em conjunto, com gestão profissional{% endblock %}
+
+{% block textos %}
+        <section class="painel">
+            <h2>O que é um Fundo de Investimento?</h2>
+            <p>Os fundos funcionam de forma bem diferente dos títulos que vimos antes (CDB, LCI, CRI, debêntures), em que você emprestava dinheiro a alguém.
+            Em um fundo, <strong>você se junta a outras pessoas para investir em conjunto</strong>. O dinheiro de todos forma um grande bolo, dividido em
+            <strong>cotas</strong>, e um profissional, o <strong>gestor</strong>, decide onde aplicar.</p>
+
+            <h3>Vantagens: o poder da união e do especialista</h3>
+            <p><strong>Gestão profissional:</strong> você não precisa passar o dia estudando gráficos; um especialista faz isso por você.<br>
+            <strong>Diversificação com pouco dinheiro:</strong> com R$ 100 você pode ter "pedacinhos" de dezenas de ativos diferentes.<br>
+            <strong>Acesso a mercados complexos:</strong> alguns fundos investem em ativos e estratégias que uma pessoa física teria dificuldade de acessar sozinha.</p>
+
+            <h3>Desvantagens: as taxas</h3>
+            <p>Como nada é de graça, o gestor cobra pelo trabalho: a <strong>taxa de administração</strong> (percentual fixo ao ano, mesmo que o fundo
+            não renda) e, em alguns fundos, a <strong>taxa de performance</strong> (um bônus quando o fundo supera uma meta). Elas já são descontadas do valor da
+            cota, então o que você vê de rentabilidade é, em geral, líquido de taxas, mas antes do imposto.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Como os Fundos de Investimento rendem?</h2>
+            <p>Depende do que o fundo compra. Para entender o imposto, os três grupos mais importantes são:</p>
+            <div class="cards-tipos">
+                <div class="card-tipo">
+                    <h3>Fundos de Renda Fixa</h3>
+                    <p>Compram títulos como CDB, debêntures e títulos públicos. O rendimento costuma acompanhar o CDI, com pouca oscilação. Pagam o <strong>come-cotas</strong> e seguem a tabela regressiva.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Fundos de Ações</h3>
+                    <p>Investem principalmente em ações (mínimo de 67% da carteira). Podem render muito mais, mas também oscilam e podem ter perdas. <strong>Sem come-cotas</strong>: imposto de 15% só no resgate.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Fundos de Debêntures Incentivadas</h3>
+                    <p>Investem em debêntures de infraestrutura. Para pessoas físicas, em geral, são <strong>isentos de IR</strong> e sem come-cotas, desde que respeitem as regras legais.</p>
+                </div>
+            </div>
+            <p class="calc-nota">Existem ainda os fundos multimercado, cambiais, imobiliários (FIIs, que têm regras próprias) e outros. Aqui tratamos dos principais
+            para entender a lógica do imposto.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Segurança: o FGC</h2>
+            <p>Os fundos de investimento <strong>NÃO têm a proteção do FGC</strong>. O que protege você aqui é outra estrutura: o dinheiro do fundo fica em uma
+            conta e em um CNPJ <strong>separados do patrimônio do gestor e do banco administrador</strong>, sob regulação e fiscalização da CVM. Se a gestora
+            quebrar, o patrimônio do fundo continua sendo dos cotistas.</p>
+            <p>O risco, porém, está nos <strong>ativos da carteira</strong>: um fundo de renda fixa pode ter papéis de empresas que não pagam (risco de crédito),
+            e um fundo de ações oscila com o mercado e pode ficar com valor menor do que você investiu. Rentabilidade passada <strong>não garante</strong>
+            rentabilidade futura.</p>
+            <p class="destaque">Antes de investir, leia a lâmina do fundo: ela mostra a estratégia, as taxas, a rentabilidade histórica e o nível de risco.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A mordida do Leão: Imposto de Renda e o "come-cotas"</h2>
+            <p>O imposto depende do tipo de fundo. O Leão só aparece <strong>sobre o lucro</strong>, e o fundo já desconta e recolhe tudo para você:</p>
+            <div class="tabela-scroll-x">
+            <table class="tabela-ir">
+                <thead>
+                    <tr><th>Tipo de fundo</th><th>Come-cotas</th><th>IR no resgate</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Renda fixa de longo prazo<br><small>(prazo médio da carteira acima de 365 dias)</small></td><td class="aliq">15%</td>
+                        <td>Tabela regressiva: 22,5% (até 180 dias), 20% (181 a 360), 17,5% (361 a 720) e 15% (acima de 720 dias)</td></tr>
+                    <tr><td>Renda fixa de curto prazo<br><small>(prazo médio de até 365 dias)</small></td><td class="aliq">20%</td>
+                        <td>22,5% até 180 dias; 20% depois disso</td></tr>
+                    <tr><td>Ações</td><td class="aliq">Não tem</td><td>15% fixos sobre o lucro, não importa o tempo</td></tr>
+                    <tr><td>Debêntures incentivadas / infraestrutura</td><td class="aliq">Não tem</td><td>Isento para pessoa física</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>O que é o come-cotas?</h3>
+            <p>É uma <strong>"jabuticaba" brasileira</strong>: nos fundos de renda fixa, o governo <strong>antecipa a cobrança do Imposto de Renda duas vezes por
+            ano</strong>, no <strong>último dia útil de maio e de novembro</strong>, sem esperar você resgatar. Você não paga com dinheiro da conta: o fundo
+            "come" uma pequena parte das suas cotas.</p>
+            <p class="destaque">Exemplo: você tem R$ 10.000 em um fundo de renda fixa de longo prazo, e ele rendeu R$ 600 desde o último come-cotas. Em maio, 15% desse
+            rendimento (R$ 90) são retirados em cotas e enviados ao governo. Você passa a ter menos cotas, mas o valor total só caiu pelo imposto.</p>
+
+            <h3>Então eu pago imposto duas vezes?</h3>
+            <p>Não. O come-cotas é uma <strong>antecipação</strong>. No resgate, o fundo calcula o imposto final de acordo com o tempo de aplicação e desconta o
+            que já foi pago. Se você ficar mais de 720 dias, a alíquota final é 15%, igual ao come-cotas, e não há diferença a pagar. Se resgatar antes, a
+            alíquota final é maior e a diferença é cobrada no resgate.</p>
+            <p>A desvantagem real é outra: como o imposto sai todo semestre, o dinheiro que foi para o governo <strong>deixa de render juros sobre juros</strong>.
+            Por isso, com a mesma taxa, um fundo de renda fixa tende a render um pouco menos que um CDB que paga todo o imposto só no final.</p>
+        </section>
+{% endblock %}
+
+{% block simule_titulo %}Simule o seu Fundo de Investimento{% endblock %}
+{% block simule_intro %}Escolha o tipo de fundo, informe o percentual do CDI que você espera que ele renda e veja o valor <strong>líquido</strong> ao final, com o
+            come-cotas incluído quando houver.{% endblock %}
+{% block nota_taxa %}<strong>Percentual do CDI estimado:</strong> informe o quanto você espera que o fundo renda em relação ao CDI (ex.: 100% se acompanha o CDI),
+                        <u>já descontadas as taxas</u> de administração e performance. Em fundos de ações o retorno é incerto: use como um cenário hipotético.{% endblock %}
+{% block nota_calculo %}<strong>Como calculamos:</strong> aportes no fim de cada mês, aplicação iniciada em <strong>{{ mes_inicio_nome }}</strong> (mês atual), para definir quando
+                        caem os come-cotas (maio e novembro). Em renda fixa, escolha <strong>longo prazo</strong> (come-cotas de 15%) ou <strong>curto prazo</strong> (20%), conforme o prazo médio da carteira do fundo. O IR é calculado por aporte, e o dinheiro retirado no come-cotas deixa de
+                        render. É uma estimativa educacional: não considera IOF nem a variação da rentabilidade ao longo do período.{% endblock %}
+
+{% block resumo %}
+            <p>Fundos oferecem <strong>gestão profissional e diversificação</strong>, mas exigem atenção a três coisas: as <strong>taxas</strong>, o <strong>risco da carteira</strong> (não
+            há FGC) e a <strong>tributação</strong>, que muda conforme o tipo de fundo. Nos de renda fixa, lembre do come-cotas em maio e novembro e,
+            como sempre, a paciência reduz a mordida do Leão.</p>
+{% endblock %}

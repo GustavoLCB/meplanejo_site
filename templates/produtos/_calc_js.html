@@ -1,0 +1,78 @@
+<script>
+(function () {
+    function formatarDinheiro(v) {
+        v = v.replace(/[^\d,]/g, '');
+        var partes = v.split(',');
+        var inteiro = partes[0].replace(/^0+(?=\d)/, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        if (partes.length > 1) { return inteiro + ',' + partes.slice(1).join('').slice(0, 2); }
+        return inteiro;
+    }
+    function formatarTaxa(v, negativo) {
+        var sinal = (negativo && v.trim().charAt(0) === '-') ? '-' : '';
+        v = v.replace(/[^\d,]/g, '');
+        if (sinal) { return sinal + formatarTaxa(v, false); }
+        var partes = v.split(',');
+        if (partes.length > 1) { return partes[0] + ',' + partes.slice(1).join('').slice(0, 2); }
+        return partes[0];
+    }
+    document.querySelectorAll('.campo-dinheiro').forEach(function (el) {
+        el.addEventListener('input', function () { el.value = formatarDinheiro(el.value); });
+        el.value = formatarDinheiro(el.value);
+    });
+    document.querySelectorAll('.campo-taxa').forEach(function (el) {
+        el.addEventListener('input', function () { el.value = formatarTaxa(el.value, el.dataset.negativo === '1'); });
+    });
+
+    // Mostra o limite de dedução (ex.: 12% da renda bruta) logo abaixo do campo.
+    document.querySelectorAll('[data-limite-deducao]').forEach(function (el) {
+        var pct = parseFloat(el.dataset.limiteDeducao) / 100;
+        var aviso = document.createElement('small');
+        aviso.className = 'ajuda-calculo';
+        el.insertAdjacentElement('afterend', aviso);
+        var moeda = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+        function mostrar() {
+            var n = parseFloat(el.value.replace(/\./g, '').replace(',', '.'));
+            if (isNaN(n) || n <= 0) { aviso.textContent = ''; return; }
+            aviso.textContent = 'Seu limite de dedução (' + el.dataset.limiteDeducao + '%): ' + moeda.format(n * pct) +
+                ' por ano (' + moeda.format(n * pct / 12) + ' por mês).';
+        }
+        el.addEventListener('input', mostrar);
+        mostrar();
+    });
+
+    // Campos que só valem para certa escolha (ex.: dados do PGBL): data-so-se="id_do_campo:valor"
+    document.querySelectorAll('[data-so-se]').forEach(function (el) {
+        var partes = el.dataset.soSe.split(':');
+        var ctrl = document.getElementById(partes[0]);
+        if (!ctrl) { return; }
+        var grupo = el.closest('.input-group, .checkbox-row');
+        function aplicar() {
+            var ativo = partes[1].split('|').indexOf(ctrl.value) >= 0;
+            el.disabled = !ativo;
+            if (grupo) { grupo.style.opacity = ativo ? '1' : '0.35'; }
+        }
+        ctrl.addEventListener('change', aplicar);
+        aplicar();
+    });
+
+    // Taxa prefixada x Percentual do CDI: preencher um desabilita o outro.
+    // (Nas páginas sem taxa prefixada, como a de Fundos, nada é desabilitado.)
+    var pre = document.getElementById('id_taxa_prefixada');
+    var pct = document.getElementById('id_percentual_cdi');
+    var cdi = document.getElementById('id_cdi_anual');
+    if (!pre || !pct || !cdi) { return; }
+    var grupoCdi = cdi.closest('.input-group');
+    function atualizar() {
+        var temPre = pre.value.trim() !== '', temPct = pct.value.trim() !== '';
+        pre.disabled = temPct; pct.disabled = temPre;
+        pre.closest('.input-group').style.opacity = temPct ? '0.35' : '1';
+        pct.closest('.input-group').style.opacity = temPre ? '0.35' : '1';
+        cdi.disabled = !temPct;
+        grupoCdi.style.opacity = temPct ? '1' : '0.35';
+        cdi.placeholder = temPct ? 'digite aqui o valor' : 'use junto com o % do CDI';
+    }
+    pre.addEventListener('input', atualizar);
+    pct.addEventListener('input', atualizar);
+    atualizar();
+})();
+</script>

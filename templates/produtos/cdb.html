@@ -1,0 +1,84 @@
+{% extends 'produtos/_base_produto.html' %}
+{% block titulo_produto %}CDB{% endblock %}
+{% block hero_titulo %}CDB{% endblock %}
+{% block hero_sub %}Certificado de Depósito Bancário{% endblock %}
+
+{% block textos %}
+        <section class="painel">
+            <h2>O que é o CDB?</h2>
+            <p>O CDB é um título de renda fixa emitido pelos bancos para captar dinheiro. Na prática, <strong>você empresta dinheiro
+            ao banco</strong> e, em troca, ele se compromete a devolver o valor com juros em uma data combinada.</p>
+            <p>É um dos investimentos mais populares do Brasil justamente porque é simples: você sabe como o rendimento é calculado,
+            sabe quando o dinheiro volta e conta com uma proteção extra, o FGC, que explicamos mais abaixo.</p>
+
+            <h3>Por que emprestar para um banco?</h3>
+            <p>Os bancos são os "motores" da economia: pegam o dinheiro de quem poupa e emprestam a pessoas e empresas, cobrando juros
+            mais altos do que pagam a você. Como são instituições regulamentadas e fiscalizadas pelo Banco Central, a estrutura para
+            devolver o seu dinheiro é muito robusta.</p>
+            <p>Existe também muita variedade: bancos grandes costumam ser mais seguros, porém pagam menos; bancos menores
+            costumam pagar mais justamente porque oferecem um pouco mais de risco.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Como o CDB rende?</h2>
+            <p>Na hora de investir, o banco informa como o seu dinheiro vai render. Existem três formas principais:</p>
+            <div class="cards-tipos">
+                <div class="card-tipo">
+                    <h3>Prefixado</h3>
+                    <p>A taxa é combinada na hora da compra e não muda. Exemplo: 12% ao ano. Você sabe exatamente quanto vai receber no vencimento.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Pós-fixado</h3>
+                    <p>Rende uma porcentagem do CDI, taxa que acompanha de perto a taxa básica de juros (Selic). Exemplo: 100% do CDI. Se os juros sobem, o rendimento sobe junto.</p>
+                </div>
+                <div class="card-tipo">
+                    <h3>Híbrido</h3>
+                    <p>Combina uma taxa fixa com a inflação (IPCA). Exemplo: IPCA + 6% ao ano. Protege o seu poder de compra ao longo do tempo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Segurança: o FGC</h2>
+            <p>O CDB conta com a proteção do <strong>FGC (Fundo Garantidor de Créditos)</strong>. Se o banco quebrar, o FGC devolve o seu dinheiro
+            até o limite de <strong>R$ 250 mil por CPF, por instituição financeira</strong>, respeitado um teto global de R$ 1 milhão a cada
+            4 anos.</p>
+            <p class="destaque">Dica prática: acima de R$ 250 mil, o ideal é dividir o valor entre bancos diferentes para que cada parte
+            fique protegida.</p>
+
+            <h3>Liquidez: quando posso resgatar?</h3>
+            <p>Alguns CDBs têm <strong>liquidez diária</strong> (você resgata quando quiser). Outros só pagam <strong>no vencimento</strong>,
+            e costumam render mais por isso. Antes de investir, confira a data de vencimento e se o dinheiro ficará preso.</p>
+        </section>
+
+        <section class="painel">
+            <h2>A mordida do Leão: Imposto de Renda</h2>
+            <p>No CDB o imposto incide <strong>apenas sobre o que rendeu</strong>, e não sobre o valor total que você investiu. E o governo
+            é paciente: quanto mais tempo o dinheiro fica aplicado, menos imposto ele cobra. É a <strong>Tabela Regressiva</strong>:</p>
+
+            <table class="tabela-ir">
+                <thead>
+                    <tr><th>Tempo de aplicação</th><th>Alíquota sobre o lucro</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Até 180 dias</td><td class="aliq">22,5%</td></tr>
+                    <tr><td>De 181 a 360 dias</td><td class="aliq">20%</td></tr>
+                    <tr><td>De 361 a 720 dias</td><td class="aliq">17,5%</td></tr>
+                    <tr><td>Acima de 720 dias</td><td class="aliq">15% (a menor!)</td></tr>
+                </tbody>
+            </table>
+
+            <p>Ou seja: se você tirar o dinheiro em 3 meses, o Leão leva uma fatia grande (22,5%). Se for resiliente e esperar mais de 2 anos,
+            a mordida cai para o mínimo (15%). O imposto é descontado direto pelo banco, você não precisa fazer nada.</p>
+            <p class="calc-nota">Observação: resgates com menos de 30 dias também pagam IOF, que vai diminuindo até zerar no 30º dia.
+            Neste simulador consideramos prazos maiores que isso.</p>
+        </section>
+{% endblock %}
+
+{% block simule_titulo %}Simule o seu CDB{% endblock %}
+
+{% block resumo %}
+            <p>O CDB é um dos investimentos mais seguros do Brasil por causa da solidez bancária e da proteção do FGC. O segredo para
+            lucrar mais é a <strong>paciência</strong>: o tempo é o seu melhor aliado, porque diminui a parte que fica com o governo e dá
+            mais espaço para os juros trabalharem por você.</p>
+{% endblock %}

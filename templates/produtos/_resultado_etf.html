@@ -1,0 +1,42 @@
+{% if resultado %}
+<div class="res-box">
+    <p class="res-rotulo">Total aportado em {{ resultado.periodos }} meses</p>
+    <h2 class="res-final" style="text-transform: none; font-size: 2rem;">R$ {{ resultado.investido }}</h2>
+
+    <p class="res-rotulo" style="margin: 0 0 10px;">Líquido final, depois das taxas e do imposto</p>
+    <div class="comparativo-tabelas">
+        <div class="col-tabela {% if resultado.melhor == 'etf' %}melhor{% endif %}">
+            <h4>ETF</h4>
+            <div class="res-linha sub"><span>Rentab. após taxa ({{ resultado.taxa_etf }}%)</span><span>{{ resultado.etf.rent_liq_anual }}% a.a.</span></div>
+            <div class="res-linha"><span>Valor antes do IR</span><span>R$ {{ resultado.etf.valor_antes_ir }}</span></div>
+            <div class="res-linha menos"><span>IR (15% só na venda)</span><span>R$ {{ resultado.etf.ir }}</span></div>
+            <div class="res-linha total"><span>Líquido</span><span>R$ {{ resultado.etf.liquido }}</span></div>
+            <div class="res-linha sub"><span>Rentabilidade no período</span><span>{{ resultado.etf.rentabilidade_liquida }}%</span></div>
+            <div class="res-linha sub"><span>Efeito da taxa</span><span>- R$ {{ resultado.etf.efeito_taxa }}</span></div>
+            {% if resultado.melhor == 'etf' %}<span class="selo">Maior valor líquido</span>{% endif %}
+        </div>
+        <div class="col-tabela {% if resultado.melhor == 'fundo' %}melhor{% endif %}">
+            <h4>Fundo tradicional</h4>
+            <div class="res-linha sub"><span>Rentab. após taxa ({{ resultado.taxa_fundo }}%)</span><span>{{ resultado.fundo.rent_liq_anual }}% a.a.</span></div>
+            <div class="res-linha"><span>Valor antes do IR final</span><span>R$ {{ resultado.fundo.valor_antes_ir }}</span></div>
+            {% if resultado.acoes %}
+            <div class="res-linha menos"><span>IR (15% só no resgate)</span><span>R$ {{ resultado.fundo.ir }}</span></div>
+            {% else %}
+            <div class="res-linha menos"><span>IR total</span><span>R$ {{ resultado.fundo.ir }}</span></div>
+            <div class="res-linha sub"><span>Come-cotas (maio/nov.)</span><span>R$ {{ resultado.fundo.ir_comecotas }}</span></div>
+            <div class="res-linha sub"><span>Ajuste no resgate</span><span>R$ {{ resultado.fundo.ir_resgate }}</span></div>
+            {% endif %}
+            <div class="res-linha total"><span>Líquido</span><span>R$ {{ resultado.fundo.liquido }}</span></div>
+            <div class="res-linha sub"><span>Rentabilidade no período</span><span>{{ resultado.fundo.rentabilidade_liquida }}%</span></div>
+            <div class="res-linha sub"><span>Efeito da taxa</span><span>- R$ {{ resultado.fundo.efeito_taxa }}</span></div>
+            {% if resultado.melhor == 'fundo' %}<span class="selo">Maior valor líquido</span>{% endif %}
+        </div>
+    </div>
+    <p class="calc-nota" style="margin-top: 15px;">Diferença a favor de quem rende mais: <strong>R$ {{ resultado.diferenca }}</strong>.
+    "Efeito da taxa" é quanto cada um renderia a mais, depois do imposto, se não cobrasse nenhuma taxa de administração.</p>
+</div>
+{% else %}
+<div class="res-box">
+    <p class="calc-vazio">Preencha os dados ao lado para comparar o ETF com um fundo tradicional, já com taxas e impostos.</p>
+</div>
+{% endif %}
